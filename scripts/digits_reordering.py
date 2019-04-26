@@ -1,3 +1,7 @@
+"""
+RUN EXAMPLE: python scripts/digits_reordering.py --pickle-file pickles/digits_reordering_10000_2000_10_2019-04-26_17:28:01.111497.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100
+"""
+
 # Usual imports
 import time
 import math
@@ -7,6 +11,7 @@ import matplotlib.pyplot as plt
 import argparse
 import pickle
 from glob import glob
+import random
 
 #Torch
 import torch
@@ -26,10 +31,11 @@ from order_matters import ReadProcessWrite
 
 def main():
     if torch.cuda.is_available():
-        USE_CUDA = True
+        args.USE_CUDA = True
         print('Using GPU, %i devices.' % torch.cuda.device_count())
     else:
-        USE_CUDA = False
+        args.USE_CUDA = False
+        
         
     
     with open(args.pickle_file, 'rb') as f:
@@ -54,12 +60,21 @@ def main():
             batch_size=args.batch_size, shuffle=True,
             num_workers=args.workers, pin_memory=True)
     
-    input_dim = dict_data['train'][0][0].shape[0]
-    model = ReadProcessWrite(args.hidden_dim, args.lstm_steps, args.batch_size, input_dim)
+    model = create_model(args)
+    
+    args.weights_indices = {}
+    args.parameters = list(model.named_parameters())
+    for name, param in args.parameters:
+        if param.requires_grad:
+            size = list(param.data.flatten().size())[0]
+            args.weights_indices[name] = random.sample(range(size), 5)
     
     
-    if USE_CUDA:
-        model.cuda()
+    if args.USE_CUDA:
+        device = torch.cuda.current_device()
+        #model.cuda()
+        device = f'cuda:{torch.cuda.current_device()}' if torch.cuda.is_available() else 'cpu'
+        model.to(device)
         net = torch.nn.DataParallel(model, device_ids=range(torch.cuda.device_count()))
         cudnn.benchmark = True
         
@@ -80,7 +95,7 @@ def main():
             'epoch': epoch + 1,
             'state_dict': model.state_dict(),
             'val_loss': val_loss,
-        }, is_best, os.path.join(cmd_args.saveprefix, str(it), f'ep_{epoch+1}_map_{best_val_loss:.3}'))
+        }, is_best, os.path.join(args.saveprefix, str(it), f'ep_{epoch+1}_map_{best_val_loss:.3}'))
     
     writer.close()
     
@@ -98,8 +113,9 @@ def train(train_loader, val_loader, model, criterion, optimizer, epoch, writer):
         X, Y = data
         
         # Transfer to GPU
-        #local_batch, local_labels = local_batch.to(device), local_labels.to(device)
-        X, Y = X.cuda().float(), Y.cuda()
+        device = f'cuda:{torch.cuda.current_device()}' if torch.cuda.is_available() else 'cpu'
+        X, Y = X.to(device).float(), Y.to(device)
+        #X, Y = X.cuda().float(), Y.cuda()
 
         # Model computations
         # zero the parameter gradients
@@ -108,8 +124,9 @@ def train(train_loader, val_loader, model, criterion, optimizer, epoch, writer):
         # forward + backward + optimize
         outputs, pointers, hidden = model(X)
         
-        outputs = outputs.contiguous().view(-1, o.size()[-1])
+        outputs = outputs.contiguous().view(-1, outputs.size()[-1])
         Y = Y.view(-1)
+        #print(f'outputs: {outputs.size()}, Y: {Y.size()}')
         
         loss = criterion(outputs, Y)
         loss.backward()
@@ -120,13 +137,17 @@ def train(train_loader, val_loader, model, criterion, optimizer, epoch, writer):
         if i % args.print_offset == args.print_offset -1:    # print every 10 mini-batches
             print('[%d, %5d] loss: %.6f' %
                   (epoch + 1, i + 1, running_loss /args.print_offset ))
-            writer.add_scalar('data/losses/train_loss', running_loss/cmd_args.print_offset, i + 1 + epoch*loader_len)
+            #print(f'outputs: {outputs[:15,:]}, Y: {Y[:15]}')
+            writer.add_scalar('data/losses/train_loss', running_loss/args.print_offset, i + 1 + epoch*loader_len)
+            write_weights(args.weights_indices, args.parameters, writer, i + 1 + epoch*loader_len)
             running_loss = 0
     
 
     # Validation
     avg_val_loss = val(val_loader, model, criterion, epoch)
-    writer.add_scalar('data/losses/test_loss', running_loss/cmd_args.print_offset, (epoch+1)*loader_len)
+    writer.add_scalar('data/losses/val_loss', running_loss/args.print_offset, (epoch+1)*loader_len)
+    
+    return avg_val_loss
     
     
 def val(val_loader, model, criterion, epoch=0):
@@ -141,13 +162,14 @@ def val(val_loader, model, criterion, epoch=0):
 
             # Transfer to GPU
             #local_batch, local_labels = local_batch.to(device), local_labels.to(device)
-            X, Y = X.cuda().float(), Y.cuda()
-            
-            # Model computations
+            device = f'cuda:{torch.cuda.current_device()}' if torch.cuda.is_available() else 'cpu'
+            X, Y = X.to(device).float(), Y.to(device)
+            #X, Y = X.cuda().float(), Y.cuda()
+
             # forward + backward + optimize
             outputs, pointers, hidden = model(X)
-            
-            outputs = outputs.contiguous().view(-1, o.size()[-1])
+
+            outputs = outputs.contiguous().view(-1, outputs.size()[-1])
             Y = Y.view(-1)
             loss = criterion(outputs, Y)
             val_loss += loss.item()
@@ -156,6 +178,67 @@ def val(val_loader, model, criterion, epoch=0):
     print(f'Epoch {epoch + 1} validation loss: {val_loss / (cpt+1)}')
 
     return val_loss / (cpt+1)
+
+def create_model(args):
+    print("=> creating model")
+    model = ReadProcessWrite(args.hidden_dim, args.lstm_steps, args.batch_size)
+    
+    if args.resume:
+        if os.path.isfile(args.resume):
+            print("=> loading checkpoint '{}'".format(args.resume))
+            if args.USE_CUDA:
+                checkpoint = torch.load(args.resume)
+            else:
+                checkpoint = torch.load(args.resume, map_location='cpu')
+            args.start_epoch = checkpoint['epoch']
+            #try:
+            #    args.best_map = checkpoint['val_map']
+            #except KeyError as e:
+            #    args.best_map = None
+            # print(checkpoint['state_dict'].keys())
+            try:
+                model.load_state_dict(checkpoint['state_dict'])
+            except RuntimeError as e:
+                print('Could not load state_dict. Attempting to correct for DataParallel module.* parameter names. This may not be the problem however...')
+                # This catches the case when the model file was save in DataParallel state
+                # create new OrderedDict that does not contain `module.`
+                from collections import OrderedDict
+                new_state_dict = OrderedDict()
+                for k, v in checkpoint['state_dict'].items():
+                    name = k[7:] # remove `module.`
+                    new_state_dict[name] = v
+                # load params
+                model.load_state_dict(new_state_dict)
+            # print("=> loaded checkpoint '{}' (epoch {})"
+            #       .format(args.resume, checkpoint['epoch']))
+        else:
+            print("=> no checkpoint found at '{}'".format(args.resume))
+    
+    return model
+    
+
+def write_weights(weights_indices, parameters, writer, n_iter):
+    """
+    Adds a current set of weights to the writer
+    
+    Parameters
+    =========
+    weights_indices: dict of the indices of the weights to 
+    capture for each flattened weight vector
+    
+    parameters: list of tuple (name, torch.Tensor parameter vector)
+    writer: the tensorboadX writer object
+    n_iter: The iteration at which to save
+    """
+    weights_data = {}
+    for name, param in parameters:
+        if param.requires_grad:
+            indices = weights_indices[name]
+            for idx in indices:
+                weights_data[f'{idx}'] = param.data.flatten()[idx]
+            writer.add_scalars(f'data/weigths/{name}', weights_data, n_iter)
+            weights_data = {}
+                   
 
 def save_checkpoint(state, is_best, filename='checkpoint.pth.tar'):
     if not os.path.exists(os.path.dirname(filename)):
@@ -192,5 +275,7 @@ if __name__ == '__main__':
                         help='how often to print in minibatches')
     parser.add_argument('-j', '--workers', default=4, type=int, metavar='N',
                         help='number of data loading workers (default: 4)')
+    parser.add_argument('--resume', default='', type=str, 
+                        help='path to latest checkpoint (default: none)')
     args = parser.parse_args()
     main()

@@ -21,4 +21,6 @@ class DigitsDataset(torch.utils.data.Dataset):
         return len(self.data)
     
     def __getitem__(self, idx):
-        return torch.from_numpy(self.data[idx][0][:,np.newaxis].astype(np.float64)), torch.from_numpy(self.data[idx][1])
+        X = torch.from_numpy(self.data[idx][0].astype(np.float64)).unsqueeze(-2)
+        Y = torch.from_numpy(self.data[idx][1])
+        return X, Y

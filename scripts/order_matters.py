@@ -6,6 +6,7 @@ import math, copy, time
 from torch.autograd import Variable
 import matplotlib.pyplot as plt
 import seaborn
+import pdb
 
 
 class Read(nn.Module):
@@ -20,14 +21,20 @@ class Read(nn.Module):
     """
     def __init__(self, hidden_dim, input_dim=1):
         super(Read, self).__init__()
-        self.conv1d = nn.Conv1d(input_dim, hidden_dim, 1, 1, bias=True)
+        self.W = nn.Parameter(torch.randn(hidden_dim, input_dim))
+        self.b = nn.Parameter(torch.randn(hidden_dim))
+        self.nonlinearity = nn.ReLU6()
         
     def forward(self, x):
         """
         x is a batch of sets of shape (batch size, input_dim, set_length) to fit the expected shape of conv1d
         """
-        x = self.conv1d(x)
-        #print(x.size())
+        W = self.W.unsqueeze(0).unsqueeze(0) #final shape (1, 1, input_dim, output_dim)
+        b = self.b.unsqueeze(0).unsqueeze(0).unsqueeze(-1)
+        x = x.permute(0,2,1).unsqueeze(-1) #shape (batch size, set_length, input_dim, 1)
+        x = self.nonlinearity(torch.matmul(W, x)  + b) # shape (batch size, set_length, hidden_dim, 1)
+        x = x.squeeze(-1).permute(0,2,1) # shape (batch size, hidden_dim, set_length)
+        
         return x
     
     
@@ -45,7 +52,11 @@ class Process(nn.Module):
         self.lstm_steps = lstm_steps
         self.batch_size = batch_size
         self.lstmcell = nn.LSTMCell(self.input_dim, self.hidden_dim, bias=True)
-        self.i0 = torch.zeros(self.input_dim)
+        ##QUESTION: Should these be initialized to the same value for each member of the batch ?
+        ### TODO: look into how to initialize LSTM state/outputf
+        self.i0 = nn.Parameter(torch.zeros(self.input_dim), requires_grad=False)
+        self.h_0 = nn.Parameter(torch.randn(self.hidden_dim), requires_grad=False)
+        self.c_0 = nn.Parameter(torch.randn(self.hidden_dim), requires_grad=False)
         
         
     def forward(self, M, mask=None, dropout=None):
@@ -58,35 +69,42 @@ class Process(nn.Module):
         ----------
         M: the memories tensor or shape ((batch size, hidden_dim, set_length))
         """
-        h_0 = torch.randn(self.batch_size, self.hidden_dim)
-        c_0 = torch.randn(self.batch_size, self.hidden_dim)
-        i0 = self.i0.expand(self.batch_size, -1)
+        #To account for the last batch that might not have the same length as the rest
+        batch_size = M.size(0)
+        i0 = self.i0.unsqueeze(0).expand(batch_size, -1)
+        h_0 = self.h_0.unsqueeze(0).expand(batch_size, -1)
+        c_0 = self.c_0.unsqueeze(0).expand(batch_size, -1)
+        
         for _ in range(self.lstm_steps):
             if _ == 0:
                 h_t_1 = h_0
                 c_t_1 = c_0
                 r_t_1 = i0
-            h_t, c_t = self.lstmcell(i0, (h_t_1, c_t_1))
-            ## We accumulate the cell state at each step
+            h_t, c_t = self.lstmcell(r_t_1, (h_t_1, c_t_1))
             d_k = c_t.size(-1)
             
-            #c_t is of shape (batch_size, hidden_dim) so we expand it 
+            #c_t is of shape (batch_size, hidden_dim) so we expand it
+            #try:
             scores = torch.matmul(M.transpose(-2, -1), c_t.unsqueeze(2)) \
-                     / math.sqrt(d_k)
+                         / math.sqrt(d_k)
+            #except:
+            #    print(f'M: {M.transpose(-2, -1).size()}, c_t: {c_t.size()}')
+            #    raise RuntimeError('Score error')
                 
             if mask is not None:
                 scores = scores.masked_fill(mask == 0, -1e9)
             p_attn = F.softmax(scores, dim = -1)
             if dropout is not None:
                 p_attn = dropout(p_attn)
-            r_t_1 = torch.matmul(M, p_attn)
+            r_t_1 = torch.matmul(M, p_attn).squeeze(-1)
+            #print(f'r_t_1: {r_t_1.size()}')
             h_t_1 = h_t
             c_t_1 = c_t
         return (r_t_1, c_t_1)
     
 class Attention(nn.Module):
     """
-    Attention model for Pointer-Net
+    Attention model for Pointer-Net taken from https://github.com/shirgur/PointerNet/blob/master/PointerNet.py
     """
 
     def __init__(self, input_dim,
@@ -107,36 +125,39 @@ class Attention(nn.Module):
         self.V = nn.Parameter(torch.FloatTensor(hidden_dim), requires_grad=True)
         self._inf = nn.Parameter(torch.FloatTensor([float('-inf')]), requires_grad=False)
         self.tanh = nn.Tanh()
-        self.softmax = nn.Softmax()
+        self.softmax = nn.Softmax(dim=1)
 
         # Initialize vector V
-        nn.init.uniform(self.V, -1, 1)
+        nn.init.uniform_(self.V, -1, 1)
 
     def forward(self, input,
                 context,
                 mask):
         """
         Attention - Forward-pass
-        :param Tensor input: Hidden state h
+        :param Tensor input: Hidden state h (as said in the Pointer's Network paper:  For the LSTM RNNs, 
+        we use the state after the output gate has been component-wise multiplied by the cell activations.
+        
         :param Tensor context: Attention context
         :param ByteTensor mask: Selection mask
+        
         :return: tuple of - (Attentioned hidden state, Alphas)
         """
 
-        # (batch, hidden_dim, seq_len)
-        #print('input: ', input.unsqueeze(2).transpose(-2, -1))
-        inp = self.input_linear(input.unsqueeze(2).transpose(-2, -1)).transpose(-2, -1).repeat(1,1,5)
+        # input is of shape (batch, hidden_dim) so inp will be of shape (batch_size, hidden_dim, seq_len)
+        inp = self.input_linear(input.unsqueeze(2).transpose(-2, -1)).transpose(-2, -1).repeat(1,1,context.size(-1))
 
-        # context is shape (batch, seq_len, hidden_dim)
+        # context is shape (batch, hidden_dim, seq_len)
         ctx = self.context_linear(context)
 
-        # (batch, 1, hidden_dim)
+        # V will of shape (batch, 1, hidden_dim)
         V = self.V.unsqueeze(0).expand(context.size(0), -1).unsqueeze(1)
 
-        # (batch, seq_len)
+        # attention will be of shape (batch, seq_len)
         att = torch.bmm(V, self.tanh(inp + ctx)).squeeze(1)
         if len(att[mask]) > 0:
             att[mask] = self.inf[mask]
+        
         alpha = self.softmax(att)
 
         hidden_state = torch.bmm(ctx, alpha.unsqueeze(2)).squeeze(2)
@@ -185,7 +206,6 @@ class Write(nn.Module):
         :param Tensor context: Encoder's outputs
         :return: (Output probabilities, Pointers indices), last hidden state
         """
-
         batch_size = embedded_inputs.size(0)
         # The size of the set
         input_length = embedded_inputs.size(2)
@@ -212,7 +232,8 @@ class Write(nn.Module):
             """
 
             # Regular LSTM
-            h, c = hidden
+            h, c = hidden #shapes ((batch_size, hidden_dim), (batch_size, hidden_dim))
+            
             gates = self.input_to_hidden(x) + self.hidden_to_hidden(h.squeeze())
             input, forget, cell, out = gates.chunk(4, 1)
 
@@ -223,6 +244,7 @@ class Write(nn.Module):
 
             c_t = (forget * c) + (input * cell)
             h_t = out * torch.tanh(c_t)
+            #print(f'out: {out.size()}, c_t: {c_t.size()}, h_t: {h_t.size()}')
 
             # Attention section
             hidden_t, output = self.att(h_t, context, torch.eq(mask, 0))
@@ -265,15 +287,17 @@ class ReadProcessWrite(nn.Module):
     def __init__(self, hidden_dim, lstm_steps, batch_size, input_dim=1):
         super(ReadProcessWrite, self).__init__()
         #self.decoder_input0 = nn.Parameter(torch.FloatTensor(hidden_dim), requires_grad=False)
-        self.decoder_input0 = torch.zeros(hidden_dim)
+        self.decoder_input0 = nn.Parameter(torch.zeros(hidden_dim))
         self.read = Read(hidden_dim, input_dim)
         self.process = Process(hidden_dim, hidden_dim, lstm_steps, batch_size)
         self.write = Write(hidden_dim, hidden_dim)
+        self.batch_size = batch_size
         
     def forward(self, x):
+        batch_size = x.size(0)
         M = self.read(x)
         r_t, c_t = self.process(M)
-        decoder_input0 = self.decoder_input0.unsqueeze(0).expand(batch_size, -1)
+        decoder_input0 = self.decoder_input0.unsqueeze(0).expand(batch_size, -1) #shape (batch_size, hidden_dim)
         #print('decoder_input0: ', decoder_input0)
         decoder_hidden0 = (r_t, c_t)
         outputs, pointers, hidden = self.write(M,
