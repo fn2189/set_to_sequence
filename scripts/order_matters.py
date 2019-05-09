@@ -9,7 +9,7 @@ import seaborn
 import pdb
 
 
-class Read(nn.Module):
+class ReadLinear(nn.Module):
     """
     A read block from the Order Matters architechture. In the case of digits reordering, a small multilayer perceptron
     implemented as 1d conv. Specifically, if the input is of shape (batch size, set_length, input_dim), conv1d with
@@ -20,7 +20,7 @@ class Read(nn.Module):
     hidden_dim: size of the digit embedding
     """
     def __init__(self, hidden_dim, input_dim=1):
-        super(Read, self).__init__()
+        super(ReadLinear, self).__init__()
         self.W = nn.Parameter(torch.randn(hidden_dim, input_dim))
         self.b = nn.Parameter(torch.randn(hidden_dim))
         self.nonlinearity = nn.ReLU6()
@@ -36,7 +36,36 @@ class Read(nn.Module):
         x = x.squeeze(-1).permute(0,2,1) # shape (batch size, hidden_dim, set_length)
         
         return x
+
+class ReadWordEncoder(nn.Module):
+    """
+    A read block from the Order Matters architechture. In the character level word encoding, a small multilayer perceptron
+    implemented as 1d conv. Specifically, the input is of shape (batch size, set_length, max_word_length, input_size). 
     
+    Paramters
+    ---------
+    hidden_dim: size of the digit embedding
+    input_size: character level vocab_size. Default to 26
+    """
+    
+    def __init__(self, hidden_dim, input_size=26):
+        super(ReadWordEncoder, self).__init__()
+        self.lstm = nn.LSTM(input_size=input_size, hidden_size=hidden_dim, num_layers=1, batch_first=True)
+        
+    def forward(self, x):
+        """
+        x is of shape (batch_size, n_set, max_word_length, vocab_size)
+        we need to loop over the batch size because lstm batch 1st take input (batch, seq_length, vocab_size)
+        and so for each element of the batch we have batch -> n_set, seq_length -> max_word_length, vocab_size -> vocab_size
+        """
+        #print(f'X[i,:,:,:] shape: {x[0, :, :, :].size()}')
+        l = []
+        for i in range(x.size(0)):
+            outputs, (h_n, c_n) =  self.lstm(x[i, :, :, :])
+            l.append(h_n)
+        res = torch.cat(l, dim=0).permute(0,2,1) #shape (batch_size, hidden_dim, n_set)
+        return res
+                     
     
 class Process(nn.Module):
     """
@@ -53,7 +82,7 @@ class Process(nn.Module):
         self.batch_size = batch_size
         self.lstmcell = nn.LSTMCell(self.input_dim, self.hidden_dim, bias=True)
         ##QUESTION: Should these be initialized to the same value for each member of the batch ?
-        ### TODO: look into how to initialize LSTM state/outputf
+        ### TODO: look into how to initialize LSTM state/output
         self.i0 = nn.Parameter(torch.zeros(self.input_dim), requires_grad=False)
         self.h_0 = nn.Parameter(torch.randn(self.hidden_dim), requires_grad=False)
         self.c_0 = nn.Parameter(torch.randn(self.hidden_dim), requires_grad=False)
@@ -64,6 +93,8 @@ class Process(nn.Module):
         c_t is the state the LSTM evolves, aka q_t from the order matters paper
         h and c are initialized randomly
         the dot product is scaled to avoid it exploding with the embedding dimension
+        
+        The out put, q_t_star = (q_t, r_t) is the linear  is projected with a linear layer to the size of the state of the write LSTM, and used as its initial state
         
         Parameters
         ----------
@@ -233,8 +264,11 @@ class Write(nn.Module):
 
             # Regular LSTM
             h, c = hidden #shapes ((batch_size, hidden_dim), (batch_size, hidden_dim))
+            #print(f'h shape: {h.size()}')
+            #print(f'x shape: {x.size()}')
             
-            gates = self.input_to_hidden(x) + self.hidden_to_hidden(h.squeeze())
+            #gates = self.input_to_hidden(x) + self.hidden_to_hidden(h.squeeze())
+            gates = self.hidden_to_hidden(h.squeeze())
             input, forget, cell, out = gates.chunk(4, 1)
 
             input = torch.sigmoid(input)
@@ -284,22 +318,32 @@ class ReadProcessWrite(nn.Module):
     """
     The full read-process-write from the order matters paper.
     """
-    def __init__(self, hidden_dim, lstm_steps, batch_size, input_dim=1):
+    def __init__(self, hidden_dim, lstm_steps, batch_size, input_dim=1, reader='linear'):
         super(ReadProcessWrite, self).__init__()
-        #self.decoder_input0 = nn.Parameter(torch.FloatTensor(hidden_dim), requires_grad=False)
+        self.readers_dict = {'linear': ReadLinear, 'words': ReadWordEncoder}
+        
+        #print(f'hidden_dim: {hidden_dim}, input_dim: {input_dim}')
         self.decoder_input0 = nn.Parameter(torch.zeros(hidden_dim))
-        self.read = Read(hidden_dim, input_dim)
+        self.read = self.readers_dict[reader](hidden_dim, input_dim)
         self.process = Process(hidden_dim, hidden_dim, lstm_steps, batch_size)
         self.write = Write(hidden_dim, hidden_dim)
         self.batch_size = batch_size
+        self.process_to_write = nn.Linear(hidden_dim * 2, hidden_dim) #linear layer to project q_t_star to the hidden size of the write block
         
     def forward(self, x):
         batch_size = x.size(0)
         M = self.read(x)
         r_t, c_t = self.process(M)
+        q_t_star = torch.cat([r_t, c_t], dim=-1) #shape (batch_size, 2*hidden_dim)
+        #print(f'q_t_star shape: {q_t_star.size()}')
+        
+        #We project q_t_star using a linear layer to the hidden size of the write block to be the initial hidden state
+        write_block_hidden_state_0 = self.process_to_write(q_t_star) #shape (batch_size, hidden_dim)
+        write_block_output_state_0 = self.decoder_input0.unsqueeze(0).expand(batch_size, -1) #shape (batch_size, hidden_dim)
         decoder_input0 = self.decoder_input0.unsqueeze(0).expand(batch_size, -1) #shape (batch_size, hidden_dim)
+        
         #print('decoder_input0: ', decoder_input0)
-        decoder_hidden0 = (r_t, c_t)
+        decoder_hidden0 = (write_block_output_state_0, write_block_hidden_state_0)
         outputs, pointers, hidden = self.write(M,
                                                decoder_input0,
                                                decoder_hidden0,

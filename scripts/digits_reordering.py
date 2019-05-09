@@ -1,5 +1,8 @@
 """
-RUN EXAMPLE: python scripts/digits_reordering.py --pickle-file pickles/digits_reordering_10000_2000_10_2019-04-26_17:28:01.111497.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100
+RUN EXAMPLE: 
+- Digits: python scripts/digits_reordering.py --pickle-file pickles/digits_reordering_10000_2000_10_2019-04-26_17:28:01.111497.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100
+
+- Words: python scripts/digits_reordering.py --pickle-file pickles/words_reordering_1.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader words --input-dim 26
 """
 
 # Usual imports
@@ -25,9 +28,11 @@ from torch.optim import Adam
 from tensorboardX import SummaryWriter
 
 #my modules
-from dataset import DigitsDataset
+from dataset import DigitsDataset, WordsDataset
 from order_matters import ReadProcessWrite
 
+
+DATASET_CLASSES = {'linear': DigitsDataset, 'words': WordsDataset}
 
 def main():
     if torch.cuda.is_available():
@@ -47,8 +52,10 @@ def main():
     writer = SummaryWriter(os.path.join(args.tensorboard_saveprefix, str(it)))
     writer.add_text('Metadata', 'Run {} metadata :\n{}'.format(it, args,))
     
-    train_ds = DigitsDataset(dict_data['train'])
-    val_ds = DigitsDataset(dict_data['val'])
+    dataset_class = DATASET_CLASSES[args.reader]
+    
+    train_ds = dataset_class(dict_data['train'])
+    val_ds = dataset_class(dict_data['val'])
     
     train_loader = torch.utils.data.DataLoader(
             train_ds,
@@ -67,7 +74,7 @@ def main():
     for name, param in args.parameters:
         if param.requires_grad:
             size = list(param.data.flatten().size())[0]
-            args.weights_indices[name] = random.sample(range(size), 5)
+            args.weights_indices[name] = random.sample(range(size), min(5, size))
     
     
     if args.USE_CUDA:
@@ -181,7 +188,7 @@ def val(val_loader, model, criterion, epoch=0):
 
 def create_model(args):
     print("=> creating model")
-    model = ReadProcessWrite(args.hidden_dim, args.lstm_steps, args.batch_size)
+    model = ReadProcessWrite(args.hidden_dim, args.lstm_steps, args.batch_size, input_dim= args.input_dim, reader=args.reader)
     
     if args.resume:
         if os.path.isfile(args.resume):
@@ -277,5 +284,9 @@ if __name__ == '__main__':
                         help='number of data loading workers (default: 4)')
     parser.add_argument('--resume', default='', type=str, 
                         help='path to latest checkpoint (default: none)')
+    parser.add_argument('--reader', default='linear', type=str, 
+                        help='what reader and dataset class ')
+    parser.add_argument('--input-dim', default=1, type=int, 
+                        help='dimension of the input ex: 1 for digits, 26 for words create from western alphabet')
     args = parser.parse_args()
     main()

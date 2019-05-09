@@ -26,20 +26,20 @@ def main():
     
     X_train = np.random.uniform(size=(args.n_train, args.n_set))
     Y_train = np.argsort(X_train, axis=1)
-    #y_list_indices_train = np.argsort(X_train, axis=1)
-    #Y_train = np.zeros((args.n_train, args.n_set, args.n_set))
-    #for i in range(args.n_train):
-    #    Y_train[i, range(args.n_set), y_list_indices_train[i,:]] = 1
+    ##If you want the output to be a random permutation
+    ##Y_train = np.random.permutation(Y_train.transpose()).transpose()
+
     
     X_val = np.random.uniform(size=(args.n_val, args.n_set))
     Y_val = np.argsort(X_val, axis=1)
-    #y_list_indices_val = np.argsort(X_val, axis=1)
-    #Y_val = np.zeros((args.n_val, args.n_set, args.n_set))
-    #for i in range(args.n_val):
-    #    Y_val[i, range(args.n_set), y_list_indices_val[i,:]] = 1
+    ##If you want the output to be a random permutation
+    #Y_val = np.random.permutation(Y_val.transpose()).transpose()
+
     
     X_test = np.random.uniform(size=(args.n_test, args.n_set))
     Y_test = np.argsort(X_test, axis=1)
+    ##If you want the output to be a random permutation
+    #Y_test = np.random.permutation(Y_test.transpose()).transpose()
     
     dict_data = {'train': [], 'val': [], 'test': []}
     for i in range(X_train.shape[0]):

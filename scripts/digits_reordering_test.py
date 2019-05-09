@@ -1,5 +1,8 @@
 """
-RUN EXAMPLE: python scripts/digits_reordering_test.py --pickle-file pickles/digits_reordering_10000_2000_10_2019-04-26_17:28:01.111497.pkl --resume checkpoints/3/ep_10_map_inf_latest.pth.tar --hidden-dim 32 --lstm-steps 10
+RUN EXAMPLE: 
+- digits: python scripts/digits_reordering_test.py --pickle-file pickles/digits_reordering_10000_2000_10_2019-04-26_17:28:01.111497.pkl --resume checkpoints/3/ep_10_map_inf_latest.pth.tar --hidden-dim 32 --lstm-steps 10
+
+- words: python scripts/digits_reordering_test.py --pickle-file pickles/words_reordering_1.pkl --resume checkpoints/3/ep_100_map_inf_latest.pth.tar --hidden-dim 32 --lstm-steps 10 --reader words --input-dim 26
 """
 
 # Usual imports
@@ -25,10 +28,12 @@ from torch.optim import Adam
 from tensorboardX import SummaryWriter
 
 #my modules
-from dataset import DigitsDataset
+from dataset import DigitsDataset, WordsDataset
 from order_matters import ReadProcessWrite
 from digits_reordering import create_model
 
+DATASET_CLASSES = {'linear': DigitsDataset, 'words': WordsDataset}
+LETTERS = 'abcdefghijklmnopqrstuvwxyz'
 
 def main():
     if torch.cuda.is_available():
@@ -48,7 +53,9 @@ def main():
     #writer = SummaryWriter(os.path.join(args.tensorboard_saveprefix, str(it)))
     #writer.add_text('Metadata', 'Run {} metadata :\n{}'.format(it, args,))
     
-    test_ds = DigitsDataset(dict_data['test'])
+    dataset_class = DATASET_CLASSES[args.reader]
+    
+    test_ds = dataset_class(dict_data['test'])
     
     test_loader = torch.utils.data.DataLoader(
             test_ds,
@@ -80,7 +87,6 @@ def test(test_loader, model):
     loader_len = len(test_loader)
     for i, data in enumerate(test_loader, 0):
         X, Y = data
-        
         # Transfer to GPU
         device = f'cuda:{torch.cuda.current_device()}' if torch.cuda.is_available() else 'cpu'
         X, Y = X.to(device).float(), Y.to(device)
@@ -93,8 +99,21 @@ def test(test_loader, model):
         outputs = outputs.contiguous().view(-1, outputs.size()[-1])
         #print(f'outputs: {outputs.size()}, Y: {Y.size()}')
         
-        print(f'Predictions: {pointers}')
-        print(f'Real orders: {Y}')
+        
+        
+        if args.reader == 'words':
+            words = X_to_words(X.cpu())
+            #inds_x = np.tile(np.array(range(words.shape[0])), [words.shape[1], 1]).T
+            predicted_inds = pointers.cpu().data.numpy()
+            real_inds = Y.cpu().data.numpy()
+            for i in range(real_inds.shape[0]):
+                print(f' Predicted Words order: {words[i, predicted_inds[i,:]]}')
+                print(f' Real Words order: {words[i, real_inds[i,:]]}\n')
+            
+        else :
+            print(f'Predictions: {pointers}')
+            print(f'Real orders: {Y}')
+            
         for _ in range(pointers.size(0)):
             total_orders += 1
             if Y[_,:].equal( pointers[_,:]):
@@ -103,6 +122,26 @@ def test(test_loader, model):
     print(f'Fraction of perfectly sorted sets: {correct_orders/total_orders}')
 
 
+def X_to_words(X):
+    """
+    X is of shape (batch, n_seq, max_word_length, vocab_size)
+    """
+    array = X.data.numpy()
+    words =  np.ndarray((array.shape[0], array.shape[1]), dtype=object)
+    words.fill('')
+    #print(f'Words shape: {words.shape}')
+    for i in range(X.shape[0]):
+        for j in range(X.shape[1]):
+            for k in range(X.shape[2]):
+                if max(X[i,j,k,:]) == 1:
+                    words[i,j] += LETTERS[np.argmax(X[i,j,k,:])]
+                else:
+                    pass
+    return words
+                                          
+                                        
+                                            
+    
             
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='CNN Music Structure training')
@@ -118,5 +157,9 @@ if __name__ == '__main__':
                         help='number of hidden dimension for the reader/processor/writer')
     parser.add_argument('--lstm-steps', type=int, default=5,
                         help='number of steps for the self attention process block')
+    parser.add_argument('--reader', default='linear', type=str, 
+                        help='what reader and dataset class ')
+    parser.add_argument('--input-dim', default=1, type=int, 
+                        help='dimension of the input ex: 1 for digits, 26 for words create from western alphabet')
     args = parser.parse_args()
     main()
