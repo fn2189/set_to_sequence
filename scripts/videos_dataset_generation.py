@@ -3,7 +3,6 @@ example run: python scripts/videos_dataset_generation.py --glob-str "/MediaArchi
 """
 
 
-from matplotlib import pyplot as plt
 from glob import glob
 import numpy as np
 import pandas as pd
@@ -26,7 +25,7 @@ import torchvision
 from torchvision import transforms
 
 
-sys.path.append('..')
+sys.path.append('.')
 from scripts.mobilenet import mnv2, pretrained_model_fnames
 
 
@@ -47,6 +46,7 @@ def main():
     videos = glob(args.glob_str)
     
     N_SET = args.n_set
+    """
     b_dict = {}
     for i in range(len(videos)):
         metadata = skvideo.io.ffprobe(videos[i])
@@ -56,7 +56,7 @@ def main():
         for i in range(1, len(boundaries)):
             boundaries[i] = boundaries[i] - boundaries[i-1]
         b_dict[videos[i]] = boundaries
-        
+     """   
         
     # This normalize is specific to ImageNet
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
@@ -85,16 +85,22 @@ def main():
     
     data_dict = {'train': [], 'test': [], 'val': []}
     for i, vid in enumerate(train_videos):
-        X, y = compute_features(test_trans, model, train_videos[i], n_set=N_SET)
-        data_dict['train'].append((X, y, vid))
+        X, y, B = compute_features(test_trans, model, train_videos[i], n_set=N_SET)
+        data_dict['train'].append((X, y, vid, B))
+        if i+1 % 100 == 0:
+            print(f'Computed features for video: {train_videos[i]}')
 
     for i, vid in enumerate(val_videos):
-        X, y = compute_features(test_trans, model, val_videos[i], n_set=N_SET)
-        data_dict['val'].append((X, y, vid))
+        X, y, B = compute_features(test_trans, model, val_videos[i], n_set=N_SET)
+        data_dict['val'].append((X, y, vid, B))
+        if i+1 % 100 == 0:
+            print(f'Computed features for video: {val_videos[i]}')
 
     for i, vid in enumerate(test_videos):
-        X, y = compute_features(test_trans, model, test_videos[i], n_set=N_SET)
-        data_dict['test'].append((X, y, vid))
+        X, y, B = compute_features(test_trans, model, test_videos[i], n_set=N_SET)
+        data_dict['test'].append((X, y, vid, B))
+        if i+1 % 100 == 0:
+            print(f'Computed features for video: {test_videos[i]}')
         
         
     dt = str(datetime.now()).replace(' ', '_')
@@ -110,15 +116,27 @@ def main():
     
 def compute_features(transform, model, videofile, n_set=5):
     vid_in = skvideo.io.FFmpegReader(videofile)
+    (length, _, _, _) = vid_in.getShape() # numFrame x H x W x channels
+
+    n_frames_per_block = [0]*n_set
+    ## We don't want a segment to be less than 5 frames so we keep regenerating boundaries
+    ## Until that condition is met
+    while min(n_frames_per_block) < 5: 
+        boundaries = [0] + sorted(random.sample(range(length), n_set-1)) + [length]    
+        n_frames_per_block = [boundaries[i] - boundaries[i-1] for i in range(1, len(boundaries))]
+        
     set_vectors = []
+    frames_iterator = vid_in.nextFrame()
     if torch.cuda.is_available():
         model.cuda()
+        
     for i in range(n_set):
         predictions = []
         cpt = 0
-        frames_iterator = tqdm(vid_in)
         #for idx, frame in  enumerate(tqdm(vid_in)):
-        while cpt < boundaries[i]:
+        while cpt < n_frames_per_block[i]:
+            #print(cpt)
+            frame = next(frames_iterator)
             input_frame = transform(Image.fromarray(frame))
             with torch.no_grad():
                 input_img_var = torch.autograd.Variable(input_frame)
@@ -141,21 +159,24 @@ def compute_features(transform, model, videofile, n_set=5):
         vidout = vidout.mean(axis=0)
         #print(vidout.shape)
         set_vectors.append(vidout)
-        vid_in.close()
+        
+    #Closing the video stream
+    vid_in.close()
         
     #This is the random order in which we shuffle the "blocks" of the video
     #So we need to figure out the inverse permutation function that is going to serve as the correct order
     random_order = random.sample(range(n_set), n_set)
     y = np.zeros(n_set, dtype=int)
-    print(random_order, len(set_vectors))
+    #print(random_order, len(set_vectors))
     for k, v in enumerate(random_order):
         y[v] = k
     # we reorder the feature representation of the blocks now that we have computed the the correct order from the 
     #shuffled one
     set_vectors = [set_vectors[x] for x in random_order]
+    #print([x.shape for x in set_vectors])
     X = np.stack(set_vectors, axis=0)
         
-    return X, y
+    return X, y, boundaries
     
     
 if __name__ == '__main__':

@@ -3,6 +3,8 @@ RUN EXAMPLE:
 - Digits: python scripts/digits_reordering.py --pickle-file pickles/digits_reordering_10000_2000_10_2019-04-26_17:28:01.111497.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100
 
 - Words: python scripts/digits_reordering.py --pickle-file pickles/words_reordering_1.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader words --input-dim 26
+
+- Words: python scripts/digits_reordering.py --pickle-file pickles/words_reordering_1.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader words --input-dim 26
 """
 
 # Usual imports
@@ -28,7 +30,7 @@ from torch.optim import Adam
 from tensorboardX import SummaryWriter
 
 #my modules
-from dataset import DigitsDataset, WordsDataset
+from dataset import DigitsDataset, WordsDataset, VideosDataset
 from order_matters import ReadProcessWrite
 
 
