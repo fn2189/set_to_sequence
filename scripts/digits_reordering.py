@@ -4,7 +4,7 @@ RUN EXAMPLE:
 
 - Words: python scripts/digits_reordering.py --pickle-file pickles/words_reordering_1.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader words --input-dim 26
 
-- Words: python scripts/digits_reordering.py --pickle-file pickles/words_reordering_1.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader words --input-dim 26
+- Videos: python scripts/digits_reordering.py --pickle-file pickles/videos_reordering_1.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader videos --input-dim 5
 """
 
 # Usual imports
@@ -34,7 +34,7 @@ from dataset import DigitsDataset, WordsDataset, VideosDataset
 from order_matters import ReadProcessWrite
 
 
-DATASET_CLASSES = {'linear': DigitsDataset, 'words': WordsDataset}
+DATASET_CLASSES = {'linear': DigitsDataset, 'words': WordsDataset, 'videos': VideosDataset}
 
 def main():
     if torch.cuda.is_available():
@@ -83,7 +83,7 @@ def main():
         device = torch.cuda.current_device()
         #model.cuda()
         device = f'cuda:{torch.cuda.current_device()}' if torch.cuda.is_available() else 'cpu'
-        model.to(device)
+        model.to(device) 
         net = torch.nn.DataParallel(model, device_ids=range(torch.cuda.device_count()))
         cudnn.benchmark = True
         
@@ -119,7 +119,7 @@ def train(train_loader, val_loader, model, criterion, optimizer, epoch, writer):
     running_loss = 0.0
     loader_len = len(train_loader)
     for i, data in enumerate(train_loader, 0):
-        X, Y = data
+        X, Y, additional_dict = data
         
         # Transfer to GPU
         device = f'cuda:{torch.cuda.current_device()}' if torch.cuda.is_available() else 'cpu'
@@ -167,7 +167,7 @@ def val(val_loader, model, criterion, epoch=0):
     with torch.set_grad_enabled(False):
         val_loss = 0.0
         for cpt, data in enumerate(val_loader, 0):
-            X, Y = data
+            X, Y, additional_dict = data
 
             # Transfer to GPU
             #local_batch, local_labels = local_batch.to(device), local_labels.to(device)

@@ -29,9 +29,11 @@ class ReadLinear(nn.Module):
         """
         x is a batch of sets of shape (batch size, input_dim, set_length) to fit the expected shape of conv1d
         """
+        print( f'x shape: {x.size()}')
         W = self.W.unsqueeze(0).unsqueeze(0) #final shape (1, 1, input_dim, output_dim)
         b = self.b.unsqueeze(0).unsqueeze(0).unsqueeze(-1)
         x = x.permute(0,2,1).unsqueeze(-1) #shape (batch size, set_length, input_dim, 1)
+        
         x = self.nonlinearity(torch.matmul(W, x)  + b) # shape (batch size, set_length, hidden_dim, 1)
         x = x.squeeze(-1).permute(0,2,1) # shape (batch size, hidden_dim, set_length)
         
@@ -320,7 +322,7 @@ class ReadProcessWrite(nn.Module):
     """
     def __init__(self, hidden_dim, lstm_steps, batch_size, input_dim=1, reader='linear'):
         super(ReadProcessWrite, self).__init__()
-        self.readers_dict = {'linear': ReadLinear, 'words': ReadWordEncoder}
+        self.readers_dict = {'linear': ReadLinear, 'words': ReadWordEncoder, 'videos': ReadLinear}
         
         #print(f'hidden_dim: {hidden_dim}, input_dim: {input_dim}')
         self.decoder_input0 = nn.Parameter(torch.zeros(hidden_dim))
