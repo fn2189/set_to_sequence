@@ -17,24 +17,33 @@ class ReadLinear(nn.Module):
     
     Paramters
     ---------
-    hidden_dim: size of the digit embedding
+    hidden_dim: list of sizes of the embedding at the different layers of the MLP encoder
     """
-    def __init__(self, hidden_dim, input_dim=1):
+    def __init__(self, hidden_dims, input_dim=1):
         super(ReadLinear, self).__init__()
-        self.W = nn.Parameter(torch.randn(hidden_dim, input_dim))
-        self.b = nn.Parameter(torch.randn(hidden_dim))
+        self.dims = [input_dim] + hidden_dims
+        self.Ws = [nn.Parameter(torch.randn(self.dims[i+1], self.dims[i])) for i in range(len(self.dims)-1)]
+        self.bs = [nn.Parameter(torch.randn(self.dims[i+1])) for i in range(len(self.dims)-1)]
+        if torch.cuda.is_available():
+            device = f'cuda:{torch.cuda.current_device()}' 
+            self.Ws = [W.to(device) for W in self.Ws]
+            self.bs = [b.to(device) for b in self.bs]
+        
         self.nonlinearity = nn.ReLU6()
         
-    def forward(self, x):
+    def forward(self, x, n_layers=1):
         """
         x is a batch of sets of shape (batch size, input_dim, set_length) to fit the expected shape of conv1d
+        We loop over the number of layer of the MLP and for each laer we compute the output of the layer with the corresponding W and b
         """
-        print( f'x shape: {x.size()}')
-        W = self.W.unsqueeze(0).unsqueeze(0) #final shape (1, 1, input_dim, output_dim)
-        b = self.b.unsqueeze(0).unsqueeze(0).unsqueeze(-1)
         x = x.permute(0,2,1).unsqueeze(-1) #shape (batch size, set_length, input_dim, 1)
-        
-        x = self.nonlinearity(torch.matmul(W, x)  + b) # shape (batch size, set_length, hidden_dim, 1)
+        for i in range(len(self.dims)-1):
+            
+            W = self.Ws[i].unsqueeze(0).unsqueeze(0) #final shape (1, 1, input_dim, output_dim)
+            b = self.bs[i].unsqueeze(0).unsqueeze(0).unsqueeze(-1)
+            #print(f'x size: {x.size()}, W size: {W.size()}, b size: {b.size()}')
+            x = self.nonlinearity(torch.matmul(W, x)  + b) # shape (batch size, set_length, hidden_dim, 1)
+            
         x = x.squeeze(-1).permute(0,2,1) # shape (batch size, hidden_dim, set_length)
         
         return x
@@ -320,17 +329,17 @@ class ReadProcessWrite(nn.Module):
     """
     The full read-process-write from the order matters paper.
     """
-    def __init__(self, hidden_dim, lstm_steps, batch_size, input_dim=1, reader='linear'):
+    def __init__(self, hidden_dims, lstm_steps, batch_size, input_dim=1, reader='linear'):
         super(ReadProcessWrite, self).__init__()
         self.readers_dict = {'linear': ReadLinear, 'words': ReadWordEncoder, 'videos': ReadLinear}
         
         #print(f'hidden_dim: {hidden_dim}, input_dim: {input_dim}')
-        self.decoder_input0 = nn.Parameter(torch.zeros(hidden_dim))
-        self.read = self.readers_dict[reader](hidden_dim, input_dim)
-        self.process = Process(hidden_dim, hidden_dim, lstm_steps, batch_size)
-        self.write = Write(hidden_dim, hidden_dim)
+        self.decoder_input0 = nn.Parameter(torch.zeros(hidden_dims[-1]))
+        self.read = self.readers_dict[reader](hidden_dims, input_dim)
+        self.process = Process(hidden_dims[-1], hidden_dims[-1], lstm_steps, batch_size)
+        self.write = Write(hidden_dims[-1], hidden_dims[-1])
         self.batch_size = batch_size
-        self.process_to_write = nn.Linear(hidden_dim * 2, hidden_dim) #linear layer to project q_t_star to the hidden size of the write block
+        self.process_to_write = nn.Linear(hidden_dims[-1] * 2, hidden_dims[-1]) #linear layer to project q_t_star to the hidden size of the write block
         
     def forward(self, x):
         batch_size = x.size(0)

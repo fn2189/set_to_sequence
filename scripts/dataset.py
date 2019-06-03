@@ -22,7 +22,7 @@ class DigitsDataset(torch.utils.data.Dataset):
         return len(self.data)
     
     def __getitem__(self, idx):
-        X = torch.from_numpy(self.data[idx][0].astype(np.float64)).unsqueeze(-2) # shape (batch, 1, n_set)
+        X = torch.from_numpy(self.data[idx][0].astype(np.float64)).unsqueeze(-2) # shape (1, n_set)
         Y = torch.from_numpy(self.data[idx][1]) #shape (batch, n_set)
         additionnal_dict = {}
         return X, Y, additionnal_dict
@@ -44,7 +44,7 @@ class WordsDataset(torch.utils.data.Dataset):
         return len(self.data)
     
     def __getitem__(self, idx):
-        X = torch.from_numpy(self.data[idx][0].astype(np.float64)) # shape (batch, n_set, max_word_length, vocab_size)
+        X = torch.from_numpy(self.data[idx][0].astype(np.float64)) # shape (n_set, max_word_length, vocab_size)
         Y = torch.from_numpy(self.data[idx][1]) # shape (batch, n_set)
         #words = self.data[idx][2] #shape (batch, n_set)
         #additionnal_dict = {'words': words}
@@ -67,7 +67,7 @@ class VideosDataset(torch.utils.data.Dataset):
         return len(self.data)
     
     def __getitem__(self, idx):
-        X = torch.from_numpy(self.data[idx][0].astype(np.float64)).unsqueeze(-2) # shape (batch, 1, n_set) 
+        X = torch.from_numpy(self.data[idx][0].astype(np.float64)).permute(1,0)  # shape (1280, n_set) 
         Y = torch.from_numpy(self.data[idx][1]) # shape (batch, n_set)
         filename = self.data[idx][2] 
         blocks_boundaries = self.data[idx][3] 

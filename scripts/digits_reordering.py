@@ -4,7 +4,7 @@ RUN EXAMPLE:
 
 - Words: python scripts/digits_reordering.py --pickle-file pickles/words_reordering_1.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader words --input-dim 26
 
-- Videos: python scripts/digits_reordering.py --pickle-file pickles/videos_reordering_1.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader videos --input-dim 5
+- Videos: python scripts/digits_reordering.py --pickle-file pickles/videos_reordering_2.pkl  --hidden-dim 512 512 --lstm-steps 10 --lr 1 --batch-size 16 --epochs 100 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader videos --input-dim 1280
 """
 
 # Usual imports
@@ -190,7 +190,7 @@ def val(val_loader, model, criterion, epoch=0):
 
 def create_model(args):
     print("=> creating model")
-    model = ReadProcessWrite(args.hidden_dim, args.lstm_steps, args.batch_size, input_dim= args.input_dim, reader=args.reader)
+    model = ReadProcessWrite(args.hidden_dims, args.lstm_steps, args.batch_size, input_dim= args.input_dim, reader=args.reader)
     
     if args.resume:
         if os.path.isfile(args.resume):
@@ -260,8 +260,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='CNN Music Structure training')
     parser.add_argument('--pickle-file', type=str,
                         help='file from which to load the dictionnary containing the training data info')
-    parser.add_argument('--hidden-dim', type=int, default=256,
-                        help='number of hidden dimension for the reader/processor/writer')
+    parser.add_argument('--hidden-dims', type=int, default=[256], nargs='+',
+                        help='list of number of hidden dimension for the for each layer of the read block. The last on is also the hidden_dim of the process and write blocks')
     parser.add_argument('--lstm-steps', type=int, default=5,
                         help='number of steps for the self attention process block')
     parser.add_argument('--lr', type=float, default=1e-4,
