@@ -83,7 +83,7 @@ def main():
     train_videos = random.sample(videos, n_train)
     not_train = [x for x in videos if x not in train_videos]
     val_videos = random.sample(not_train, n_val)
-    test_videos = [x for x in not_train if x not in not_train]
+    test_videos = [x for x in not_train if x not in val_videos]
     
     
     data_dict = {'train': [], 'test': [], 'val': []}
