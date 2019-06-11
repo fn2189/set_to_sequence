@@ -1,7 +1,7 @@
 """
 example run: python scripts/videos_dataset_generation.py --glob-str "/home/ubuntu/s3-drive/RLY/RLYMedia/*" --n-set 5 --batch-size 64
 
-python scripts/videos_dataset_generation.py --glob-str "/MediaArchivePool/datasets/video/Moments_In_Time/Moments_in_Time_Raw/validation/[a-h]*/*" --n-set 5 --batch-size 64
+python scripts/videos_dataset_generation.py --glob-str "/MediaArchivePool/datasets/video/Moments_In_Time/Moments_in_Time_Raw/validation/[a-h]*/*" --n-set 5 --batch-size 128
 """
 
 
@@ -94,6 +94,9 @@ def main():
     for i, vid in enumerate(train_videos):
         #print(f'{i}: {vid}')
         X, y, B = compute_features(test_trans, model, train_videos[i], n_set=N_SET, batch_size=args.batch_size)
+        # We need to account for the videos that are to short, that we discard
+        if X is None:
+            continue
         data_dict['train'].append((X, y, vid, B))
         if (i+1) % 100 == 0:
             print(f'Computed features for video {i}: {train_videos[i]}')
@@ -101,6 +104,9 @@ def main():
     
     for i, vid in enumerate(val_videos):
         X, y, B = compute_features(test_trans, model, val_videos[i], n_set=N_SET, batch_size=args.batch_size)
+        # We need to account for the videos that are to short, that we discard
+        if X is None:
+            continue
         data_dict['val'].append((X, y, vid, B))
         if (i+1) % 100 == 0:
             print(f'Computed features for video {i}: {val_videos[i]}')
@@ -108,6 +114,9 @@ def main():
 
     for i, vid in enumerate(test_videos):
         X, y, B = compute_features(test_trans, model, test_videos[i], n_set=N_SET, batch_size=args.batch_size)
+        # We need to account for the videos that are to short, that we discard
+        if X is None:
+            continue
         data_dict['test'].append((X, y, vid, B))
         if (i+1) % 100 == 0:
             print(f'Computed features for video {i}: {test_videos[i]}')
@@ -129,12 +138,16 @@ def main():
 def compute_features(transform, model, videofile, n_set=5, batch_size=64):
     vid_in = skvideo.io.FFmpegReader(videofile)
     (length, _, _, _) = vid_in.getShape() # numFrame x H x W x channels
+    
+    if length < 30:
+        return None, None, None
 
     n_frames_per_block = [0]*n_set
     ## We don't want a segment to be less than 2 frames so we keep regenerating boundaries
     ## Until that condition is met
     while min(n_frames_per_block) < 2: 
-        boundaries = [0] + sorted(random.sample(range(length), n_set-1)) + [length]    
+        #print(f'length: {length}')
+        boundaries = [0] + sorted(random.sample(range(length-1), n_set-1)) + [length-1]    
         n_frames_per_block = [boundaries[i] - boundaries[i-1] for i in range(1, len(boundaries))]
         
     #print(n_frames_per_block)
@@ -142,8 +155,9 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
     set_vectors = []
     frames_iterator = vid_in.nextFrame()
     if torch.cuda.is_available():
-        model.cuda()
+        model.cuda() 
         
+    global_count= 0
     for i in range(n_set):
         predictions = []
         quotient = n_frames_per_block[i] // batch_size ##how many chunks of size batch_size in n_frames for the i-th block of the video
@@ -156,17 +170,27 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
             # I use an inner while loop to splits those frames in chunks of size args.batch_size
             cpt = 0
             input_frames_array = []
-            while (cpt < batch_size ) and ((it1*batch_size +cpt) < n_frames_per_block[i]):
-                #print(cpt)
+            while (cpt < batch_size ) and ((it1*batch_size +cpt) < n_frames_per_block[i]) :
+                #print(cpt, it1)
+                cpt += 1
+                global_count +=1
+                
                 try:
                     frame = next(frames_iterator)
                 except:
                     print(f'total n frames: {length}, i: {i}, n_frames_per_block: {n_frames_per_block}, it1*batch_size +cpt: {it1*batch_size +cpt}')
+                    print(f'global_count: {global_count}')
+                    raise ValueError('StopIteration')
                 input_frame = transform(Image.fromarray(frame))
                 input_frames_array.append(input_frame)
-                cpt += 1
+                
+                
+                #assert (cpt <= batch_size )
+                #assert ((it1*batch_size +cpt) <= n_frames_per_block[i])
+                #assert global_count <= length
+                
 
-
+            
 
             try:
                 input_frames = torch.stack(input_frames_array, dim=0)
@@ -190,8 +214,8 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
                 output = output.cpu().data.numpy()
 
             outputs.append(output)
-
-            
+        
+        #print(f'global_count: {global_count}')            
             
         vidout = outputs[0] if len(outputs) == 1 else np.concatenate(outputs, axis=0)  
         vidout = vidout.mean(axis=0)
