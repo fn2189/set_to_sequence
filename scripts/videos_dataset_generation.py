@@ -157,75 +157,7 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
     if torch.cuda.is_available():
         model.cuda() 
         
-    """
-        
-    global_count= 0
-    for i in range(n_set):
-        predictions = []
-        quotient = n_frames_per_block[i] // batch_size ##how many chunks of size batch_size in n_frames for the i-th block of the video
-        n_chunks = quotient if n_frames_per_block[i] % batch_size == 0 else quotient +1 
-        
-        #print(f'n_frames_per_block[i]: {n_frames_per_block[i]}')
-        outputs = []
-        for it1 in range(n_chunks):
-            # because the number of frames in a segment could be bigger than the max batch size the hardware can support
-            # I use an inner while loop to splits those frames in chunks of size args.batch_size
-            cpt = 0
-            input_frames_array = []
-            while (cpt < batch_size ) and ((it1*batch_size +cpt) < n_frames_per_block[i]) :
-                #print(cpt, it1)
-                cpt += 1
-                global_count +=1
-                
-                try:
-                    frame = next(frames_iterator)
-                except:
-                    print(f'videofile: {videofile}')
-                    print(f'total n frames: {length}, i: {i}, n_frames_per_block: {n_frames_per_block}, it1*batch_size +cpt: {it1*batch_size +cpt}')
-                    print(f'global_count: {global_count}')
-                    raise ValueError('StopIteration')
-                input_frame = transform(Image.fromarray(frame))
-                input_frames_array.append(input_frame)
-                
-                
-                #assert (cpt <= batch_size )
-                #assert ((it1*batch_size +cpt) <= n_frames_per_block[i])
-                #assert global_count <= length
-                
 
-            
-
-            try:
-                input_frames = torch.stack(input_frames_array, dim=0)
-            except:
-                print(f'it1: {it1}, cpt: {cpt}, n_frames_per_block[i]: {n_frames_per_block[i]}')
-                raise ValueError('RuntimeError: expected a non-empty list of Tensors')
-
-            with torch.no_grad():
-                input_imgs_var = torch.autograd.Variable(input_frames)
-            if torch.cuda.is_available():
-                input_imgs_var = input_imgs_var.cuda()
-
-            # compute output
-            try:
-                output = model(input_imgs_var)
-            except:
-                print(f'input_imgs_var size: {input_imgs_var.size()}')
-                raise ValueError('RuntimeError: CUDA error: out of memory')
-
-            if torch.cuda.is_available():
-                output = output.cpu().data.numpy()
-
-            outputs.append(output)
-        
-        #print(f'global_count: {global_count}')            
-            
-        vidout = outputs[0] if len(outputs) == 1 else np.concatenate(outputs, axis=0)  
-        vidout = vidout.mean(axis=0)
-        #print(vidout.shape)
-        set_vectors.append(vidout)
-    
-    """
     cpt=0
     input_frames_array = []
     outputs = []
@@ -274,8 +206,12 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
 
         outputs.append(output)
         input_frames_array = []
-            
-    vidout = outputs[0] if len(outputs) == 1 else np.concatenate(outputs, axis=0)
+        
+    try:
+        vidout = outputs[0] if len(outputs) == 1 else np.concatenate(outputs, axis=0)
+    except:
+        print(f'ouputs empty for video file: {videofile}')
+        return None, None, None
             
             
             
