@@ -281,7 +281,7 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
             
     ## Now we use the randomly sampled boundaries to define the video segments segments
     segments = [vidout[boundaries[i-1]:boundaries[i]] for i in range(1,len(boundaries))]
-    print(f'len(segments): {len(segments)}')
+    #print(f'len(segments): {len(segments)}')
     
     ### We average the features of the frames belonging to each segment to compute the features for the segment
     set_vectors =[x.mean(axis=0) for x in segments]
