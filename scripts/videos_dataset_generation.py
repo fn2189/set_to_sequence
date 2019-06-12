@@ -157,6 +157,8 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
     if torch.cuda.is_available():
         model.cuda() 
         
+    """
+        
     global_count= 0
     for i in range(n_set):
         predictions = []
@@ -178,6 +180,7 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
                 try:
                     frame = next(frames_iterator)
                 except:
+                    print(f'videofile: {videofile}')
                     print(f'total n frames: {length}, i: {i}, n_frames_per_block: {n_frames_per_block}, it1*batch_size +cpt: {it1*batch_size +cpt}')
                     print(f'global_count: {global_count}')
                     raise ValueError('StopIteration')
@@ -221,6 +224,69 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
         vidout = vidout.mean(axis=0)
         #print(vidout.shape)
         set_vectors.append(vidout)
+    
+    """
+    cpt=0
+    input_frames_array = []
+    outputs = []
+    for frame in frames_iterator:
+        input_frame = transform(Image.fromarray(frame))
+        input_frames_array.append(input_frame)
+        cpt+=1
+        
+        if cpt % batch_size == 0:
+            input_frames = torch.stack(input_frames_array, dim=0)
+            with torch.no_grad():
+                input_imgs_var = torch.autograd.Variable(input_frames)
+            if torch.cuda.is_available():
+                input_imgs_var = input_imgs_var.cuda()
+
+            # compute output
+            try:
+                output = model(input_imgs_var)
+            except:
+                print(f'input_imgs_var size: {input_imgs_var.size()}')
+                raise ValueError('RuntimeError: CUDA error: out of memory')
+
+            if torch.cuda.is_available():
+                output = output.cpu().data.numpy()
+
+            outputs.append(output)
+            input_frames_array = []
+            
+    ##Computing the last batch at the end of the loop
+    if len(input_frames_array) > 0:
+        input_frames = torch.stack(input_frames_array, dim=0)
+        with torch.no_grad():
+            input_imgs_var = torch.autograd.Variable(input_frames)
+        if torch.cuda.is_available():
+            input_imgs_var = input_imgs_var.cuda()
+
+        # compute output
+        try:
+            output = model(input_imgs_var)
+        except:
+            print(f'input_imgs_var size: {input_imgs_var.size()}')
+            raise ValueError('RuntimeError: CUDA error: out of memory')
+
+        if torch.cuda.is_available():
+            output = output.cpu().data.numpy()
+
+        outputs.append(output)
+        input_frames_array = []
+            
+    vidout = outputs[0] if len(outputs) == 1 else np.concatenate(outputs, axis=0)
+            
+            
+            
+    ## Now we use the randomly sampled boundaries to define the video segments segments
+    segments = [vidout[boundaries[i-1]:boundaries[i]] for i in range(1,len(boundaries))]
+    print(f'len(segments): {len(segments)}')
+    
+    ### We average the features of the frames belonging to each segment to compute the features for the segment
+    set_vectors =[x.mean(axis=0) for x in segments]
+    
+        
         
     #Closing the video stream
     vid_in.close()
