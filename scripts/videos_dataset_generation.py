@@ -258,6 +258,7 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
         
     return X, y, boundaries
     """
+    #pdb.set_trace()
     video = skvideo.io.vread(videofile)
     length = video.shape[0]
     
@@ -270,7 +271,7 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
     while min(n_frames_per_block) < 2: 
         #print(f'length: {length}')
         boundaries = [0] + sorted(random.sample(range(length-1), n_set-1)) + [length-1]    
-        #n_frames_per_block = [boundaries[i] - boundaries[i-1] for i in range(1, len(boundaries))]
+        n_frames_per_block = [boundaries[i] - boundaries[i-1] for i in range(1, len(boundaries))]
         
     
     set_vectors = []
