@@ -1,5 +1,5 @@
 """
-example run: python scripts/videos_dataset_generation.py --glob-str "/home/ubuntu/s3-drive/RLY/RLYMedia/*.mp4" --n-set 5 --batch-size 256
+example run: python scripts/videos_dataset_generation.py --glob-str "/home/ubuntu/s3-drive/RLY/RLYMedia/*.mp4" --n-set 5 --batch-size 128
 
 python scripts/videos_dataset_generation.py --glob-str "/MediaArchivePool/datasets/video/Moments_In_Time/Moments_in_Time_Raw/validation/[a-h]*/*" --n-set 5 --batch-size 64
 """
@@ -78,6 +78,8 @@ def main():
     
     #TO DO: expose other kwargs for the model through command line args
     model = mnv2(pretrained=True, freeze=False) #look at ../scripts/mobilenet.py to see additional args
+    if torch.cuda.is_available():
+        model.cuda() 
     
     n_videos = len(videos)
     n_train = int(n_videos*.7)
@@ -274,22 +276,36 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
         n_frames_per_block = [boundaries[i] - boundaries[i-1] for i in range(1, len(boundaries))]
         
     
-    set_vectors = []
-    if torch.cuda.is_available():
-        model.cuda() 
+    #set_vectors = []
+    
         
     
 
     runs = math.ceil((length/batch_size))
     outputs = []
 
-    for j in range(runs):
-        input_frames = video[j*batch_size, min((j+1)*batch_size, total_input.shape[0]-1),:,:,:]
+    for i in range(runs):
+        """
+        input_frames = torch.from_numpy(video[j*batch_size:min((j+1)*batch_size, video.shape[0]-1),:,:,:]).permute(0,3,1,2)
+        input_frames = input_frames.type(torch.FloatTensor)
         with torch.no_grad():
             input_imgs_var = torch.autograd.Variable(input_frames)
         if torch.cuda.is_available():
             input_imgs_var = input_imgs_var.cuda()
-
+        
+        print(f'Size: {input_imgs_var.size()}')
+        """
+        input_frames_array = []
+        for j in range(i*batch_size,min((i+1)*batch_size, video.shape[0]-1)):
+            frame = video[j,:,:,:]
+            input_frame = transform(Image.fromarray(frame))
+            input_frames_array.append(input_frame)
+            
+        input_frames = torch.stack(input_frames_array, dim=0)
+        with torch.no_grad():
+            input_imgs_var = torch.autograd.Variable(input_frames)
+        if torch.cuda.is_available():
+            input_imgs_var = input_imgs_var.cuda()
         # compute output
         #try:
         output = model(input_imgs_var)
