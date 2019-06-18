@@ -296,7 +296,7 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
         print(f'Size: {input_imgs_var.size()}')
         """
         input_frames_array = []
-        for j in range(i*batch_size,min((i+1)*batch_size, video.shape[0]-1)):
+        for j in range(i*batch_size,min((i+1)*batch_size, video.shape[0])):
             frame = video[j,:,:,:]
             input_frame = transform(Image.fromarray(frame))
             input_frames_array.append(input_frame)
