@@ -4,8 +4,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 import math, copy, time
 from torch.autograd import Variable
-import matplotlib.pyplot as plt
-import seaborn
+#import matplotlib.pyplot as plt
+#import seaborn
 import pdb
 
 
@@ -55,13 +55,17 @@ class ReadWordEncoder(nn.Module):
     
     Paramters
     ---------
-    hidden_dim: size of the digit embedding
+    hidden_dims: size of the embedding for the consecutive LSTM layers
     input_size: character level vocab_size. Default to 26
     """
     
-    def __init__(self, hidden_dim, input_size=26):
+    def __init__(self, hidden_dims, input_size=26):
         super(ReadWordEncoder, self).__init__()
-        self.lstm = nn.LSTM(input_size=input_size, hidden_size=hidden_dim, num_layers=1, batch_first=True)
+        self.dims = [input_size] + hidden_dims
+        self.lstms = [nn.LSTM(input_size=self.dims[i], hidden_size=self.dims[i+1], num_layers=1, batch_first=True) for i in range(len(self.dims)-1)]
+        if torch.cuda.is_available():
+            device = f'cuda:{torch.cuda.current_device()}' 
+            self.lstms = [lstm.to(device) for lstm in self.lstms]
         
     def forward(self, x):
         """
@@ -72,7 +76,9 @@ class ReadWordEncoder(nn.Module):
         #print(f'X[i,:,:,:] shape: {x[0, :, :, :].size()}')
         l = []
         for i in range(x.size(0)):
-            outputs, (h_n, c_n) =  self.lstm(x[i, :, :, :])
+            h_n = x[i, :, :, :]
+            for j in range(len(self.dims)-1):
+                outputs, (h_n, c_n) =  self.lstms[j](h_n)
             l.append(h_n)
         res = torch.cat(l, dim=0).permute(0,2,1) #shape (batch_size, hidden_dim, n_set)
         return res

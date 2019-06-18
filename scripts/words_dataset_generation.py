@@ -47,7 +47,7 @@ def main():
         dict_data['test'].append((X_test[i, :, :, :], Y_test[i,:], W_test[i, :]))
         
     dt = str(datetime.now()).replace(' ', '_')
-    filename = f'digits_reordering_{args.n_train}_{args.n_val}_{args.n_set}_{dt}.pkl'
+    filename = f'words_reordering_{args.n_train}_{args.n_val}_{args.n_set}_{dt}.pkl'
     
     print(f'Saving pickle to {filename}')
     
