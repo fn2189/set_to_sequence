@@ -76,9 +76,13 @@ class ReadWordEncoder(nn.Module):
         #print(f'X[i,:,:,:] shape: {x[0, :, :, :].size()}')
         l = []
         for i in range(x.size(0)):
-            h_n = x[i, :, :, :]
+            #h_n = x[i, :, :, :]
+            outputs = x[i, :, :, :]
             for j in range(len(self.dims)-1):
-                outputs, (h_n, c_n) =  self.lstms[j](h_n)
+                #outputs, (h_n, c_n) =  self.lstms[j](h_n)
+                outputs, (h_n, c_n) =  self.lstms[j](outputs)
+            #l.append(h_n)
+            #print(f'h_n shape: {h_n.size()}')
             l.append(h_n)
         res = torch.cat(l, dim=0).permute(0,2,1) #shape (batch_size, hidden_dim, n_set)
         return res
@@ -129,14 +133,15 @@ class Process(nn.Module):
                 c_t_1 = c_0
                 r_t_1 = i0
             h_t, c_t = self.lstmcell(r_t_1, (h_t_1, c_t_1))
-            d_k = c_t.size(-1)
+            d_k = h_t.size(-1)
+            h_t.size(-1)
             
-            #c_t is of shape (batch_size, hidden_dim) so we expand it
+            #h_t is of shape (batch_size, hidden_dim) so we expand it
             #try:
-            scores = torch.matmul(M.transpose(-2, -1), c_t.unsqueeze(2)) \
+            scores = torch.matmul(M.transpose(-2, -1), h_t.unsqueeze(2)) \
                          / math.sqrt(d_k)
             #except:
-            #    print(f'M: {M.transpose(-2, -1).size()}, c_t: {c_t.size()}')
+            #    print(f'M: {M.transpose(-2, -1).size()}, h_t: {h_t.size()}')
             #    raise RuntimeError('Score error')
                 
             if mask is not None:
@@ -148,7 +153,7 @@ class Process(nn.Module):
             #print(f'r_t_1: {r_t_1.size()}')
             h_t_1 = h_t
             c_t_1 = c_t
-        return (r_t_1, c_t_1)
+        return (r_t_1, h_t_1)
     
 class Attention(nn.Module):
     """
@@ -184,10 +189,10 @@ class Attention(nn.Module):
         """
         Attention - Forward-pass
         :param Tensor input: Hidden state h (as said in the Pointer's Network paper:  For the LSTM RNNs, 
-        we use the state after the output gate has been component-wise multiplied by the cell activations.
+        we use the state after the output gate has been component-wise multiplied by the cell activations. #(batch_size, hidden_dim)
         
-        :param Tensor context: Attention context
-        :param ByteTensor mask: Selection mask
+        :param Tensor context: Attention context #(batch_size, idden_dim, seq_len)
+        :param ByteTensor mask: Selection mask #(batch_size, n_set)
         
         :return: tuple of - (Attentioned hidden state, Alphas)
         """
@@ -248,12 +253,13 @@ class Write(nn.Module):
                 context):
         """
         Decoder - Forward-pass
-        :param Tensor embedded_inputs: Embedded inputs of Pointer-Net
-        :param Tensor decoder_input: First decoder's input
-        :param Tensor hidden: First decoder's hidden states
-        :param Tensor context: Encoder's outputs
+        :param Tensor embedded_inputs: Embedded inputs of Pointer-Net #(batch_size, hidden_dim, n_set)
+        :param Tensor decoder_input: First decoder's input #(batch_size, hidden_dim)
+        :param Tensor hidden: First decoder's hidden states #((batch_size, hidden_dim),(batch_size, hidden_dim)
+        :param Tensor context: Encoder's outputs #(batch_size, hidden_dim, n_set)
         :return: (Output probabilities, Pointers indices), last hidden state
         """
+
         batch_size = embedded_inputs.size(0)
         # The size of the set
         input_length = embedded_inputs.size(2)
@@ -284,8 +290,8 @@ class Write(nn.Module):
             #print(f'h shape: {h.size()}')
             #print(f'x shape: {x.size()}')
             
-            #gates = self.input_to_hidden(x) + self.hidden_to_hidden(h.squeeze())
-            gates = self.hidden_to_hidden(h.squeeze())
+            gates = self.input_to_hidden(x) + self.hidden_to_hidden(h.squeeze())
+            #gates = self.hidden_to_hidden(h.squeeze())
             input, forget, cell, out = gates.chunk(4, 1)
 
             input = torch.sigmoid(input)
