@@ -4,8 +4,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 import math, copy, time
 from torch.autograd import Variable
-#import matplotlib.pyplot as plt
-#import seaborn
 import pdb
 
 
@@ -17,33 +15,22 @@ class ReadLinear(nn.Module):
     
     Paramters
     ---------
-    hidden_dim: list of sizes of the embedding at the different layers of the MLP encoder
+    hidden_dim: size of the digit embedding
     """
-    def __init__(self, hidden_dims, input_dim=1):
+    def __init__(self, hidden_dim, input_dim=1):
         super(ReadLinear, self).__init__()
-        self.dims = [input_dim] + hidden_dims
-        self.Ws = [nn.Parameter(torch.randn(self.dims[i+1], self.dims[i])) for i in range(len(self.dims)-1)]
-        self.bs = [nn.Parameter(torch.randn(self.dims[i+1])) for i in range(len(self.dims)-1)]
-        if torch.cuda.is_available():
-            device = f'cuda:{torch.cuda.current_device()}' 
-            self.Ws = [W.to(device) for W in self.Ws]
-            self.bs = [b.to(device) for b in self.bs]
-        
+        self.W = nn.Parameter(torch.randn(hidden_dim, input_dim))
+        self.b = nn.Parameter(torch.randn(hidden_dim))
         self.nonlinearity = nn.ReLU6()
         
-    def forward(self, x, n_layers=1):
+    def forward(self, x):
         """
         x is a batch of sets of shape (batch size, input_dim, set_length) to fit the expected shape of conv1d
-        We loop over the number of layer of the MLP and for each laer we compute the output of the layer with the corresponding W and b
         """
+        W = self.W.unsqueeze(0).unsqueeze(0) #final shape (1, 1, input_dim, output_dim)
+        b = self.b.unsqueeze(0).unsqueeze(0).unsqueeze(-1)
         x = x.permute(0,2,1).unsqueeze(-1) #shape (batch size, set_length, input_dim, 1)
-        for i in range(len(self.dims)-1):
-            
-            W = self.Ws[i].unsqueeze(0).unsqueeze(0) #final shape (1, 1, input_dim, output_dim)
-            b = self.bs[i].unsqueeze(0).unsqueeze(0).unsqueeze(-1)
-            #print(f'x size: {x.size()}, W size: {W.size()}, b size: {b.size()}')
-            x = self.nonlinearity(torch.matmul(W, x)  + b) # shape (batch size, set_length, hidden_dim, 1)
-            
+        x = self.nonlinearity(torch.matmul(W, x)  + b) # shape (batch size, set_length, hidden_dim, 1)
         x = x.squeeze(-1).permute(0,2,1) # shape (batch size, hidden_dim, set_length)
         
         return x
@@ -55,17 +42,13 @@ class ReadWordEncoder(nn.Module):
     
     Paramters
     ---------
-    hidden_dims: size of the embedding for the consecutive LSTM layers
+    hidden_dim: size of the digit embedding
     input_size: character level vocab_size. Default to 26
     """
     
-    def __init__(self, hidden_dims, input_size=26):
+    def __init__(self, hidden_dim, input_size=26):
         super(ReadWordEncoder, self).__init__()
-        self.dims = [input_size] + hidden_dims
-        self.lstms = [nn.LSTM(input_size=self.dims[i], hidden_size=self.dims[i+1], num_layers=1, batch_first=True) for i in range(len(self.dims)-1)]
-        if torch.cuda.is_available():
-            device = f'cuda:{torch.cuda.current_device()}' 
-            self.lstms = [lstm.to(device) for lstm in self.lstms]
+        self.lstm = nn.LSTM(input_size=input_size, hidden_size=hidden_dim, num_layers=1, batch_first=True)
         
     def forward(self, x):
         """
@@ -76,13 +59,7 @@ class ReadWordEncoder(nn.Module):
         #print(f'X[i,:,:,:] shape: {x[0, :, :, :].size()}')
         l = []
         for i in range(x.size(0)):
-            #h_n = x[i, :, :, :]
-            outputs = x[i, :, :, :]
-            for j in range(len(self.dims)-1):
-                #outputs, (h_n, c_n) =  self.lstms[j](h_n)
-                outputs, (h_n, c_n) =  self.lstms[j](outputs)
-            #l.append(h_n)
-            #print(f'h_n shape: {h_n.size()}')
+            outputs, (h_n, c_n) =  self.lstm(x[i, :, :, :])
             l.append(h_n)
         res = torch.cat(l, dim=0).permute(0,2,1) #shape (batch_size, hidden_dim, n_set)
         return res
@@ -133,14 +110,14 @@ class Process(nn.Module):
                 c_t_1 = c_0
                 r_t_1 = i0
             h_t, c_t = self.lstmcell(r_t_1, (h_t_1, c_t_1))
-            d_k = h_t.size(-1)
+            d_k = c_t.size(-1)
             
-            #h_t is of shape (batch_size, hidden_dim) so we expand it
+            #c_t is of shape (batch_size, hidden_dim) so we expand it
             #try:
-            scores = torch.matmul(M.transpose(-2, -1), h_t.unsqueeze(2)) \
+            scores = torch.matmul(M.transpose(-2, -1), c_t.unsqueeze(2)) \
                          / math.sqrt(d_k)
             #except:
-            #    print(f'M: {M.transpose(-2, -1).size()}, h_t: {h_t.size()}')
+            #    print(f'M: {M.transpose(-2, -1).size()}, c_t: {c_t.size()}')
             #    raise RuntimeError('Score error')
                 
             if mask is not None:
@@ -148,10 +125,11 @@ class Process(nn.Module):
             p_attn = F.softmax(scores, dim = -1)
             if dropout is not None:
                 p_attn = dropout(p_attn)
-            r_t_1 = torch.matmul(M, p_attn).squeeze(-1) #shape (batch_size, hidden_dim)
+            r_t_1 = torch.matmul(M, p_attn).squeeze(-1)
+            #print(f'r_t_1: {r_t_1.size()}')
             h_t_1 = h_t
             c_t_1 = c_t
-        return (r_t_1, h_t_1)
+        return (r_t_1, c_t_1)
     
 class Attention(nn.Module):
     """
@@ -187,10 +165,10 @@ class Attention(nn.Module):
         """
         Attention - Forward-pass
         :param Tensor input: Hidden state h (as said in the Pointer's Network paper:  For the LSTM RNNs, 
-        we use the state after the output gate has been component-wise multiplied by the cell activations. #(batch_size, hidden_dim)
+        we use the state after the output gate has been component-wise multiplied by the cell activations.
         
-        :param Tensor context: Attention context #(batch_size, hidden_dim, seq_len)
-        :param ByteTensor mask: Selection mask #(batch_size, n_set)
+        :param Tensor context: Attention context
+        :param ByteTensor mask: Selection mask
         
         :return: tuple of - (Attentioned hidden state, Alphas)
         """
@@ -209,7 +187,7 @@ class Attention(nn.Module):
         if len(att[mask]) > 0:
             att[mask] = self.inf[mask]
         
-        alpha = self.softmax(att) #(batch, seq_len)
+        alpha = self.softmax(att)
 
         hidden_state = torch.bmm(ctx, alpha.unsqueeze(2)).squeeze(2)
 
@@ -251,15 +229,14 @@ class Write(nn.Module):
                 context):
         """
         Decoder - Forward-pass
-        :param Tensor embedded_inputs: Embedded inputs of Pointer-Net #(batch_size, hidden_dim, n_set)
-        :param Tensor decoder_input: First decoder's input #(batch_size, hidden_dim)
-        :param Tensor hidden: First decoder's hidden states #((batch_size, hidden_dim),(batch_size, hidden_dim)
-        :param Tensor context: Encoder's outputs #(batch_size, hidden_dim, n_set)
+        :param Tensor embedded_inputs: Embedded inputs of Pointer-Net
+        :param Tensor decoder_input: First decoder's input
+        :param Tensor hidden: First decoder's hidden states
+        :param Tensor context: Encoder's outputs
         :return: (Output probabilities, Pointers indices), last hidden state
         """
-
         batch_size = embedded_inputs.size(0)
-        # input_length == n_set
+        # The size of the set
         input_length = embedded_inputs.size(2)
 
         # (batch, seq_len)
@@ -288,7 +265,8 @@ class Write(nn.Module):
             #print(f'h shape: {h.size()}')
             #print(f'x shape: {x.size()}')
             
-            gates = self.input_to_hidden(x) + self.hidden_to_hidden(h.squeeze())
+            #gates = self.input_to_hidden(x) + self.hidden_to_hidden(h.squeeze())
+            gates = self.hidden_to_hidden(h.squeeze())
             input, forget, cell, out = gates.chunk(4, 1)
 
             input = torch.sigmoid(input)
@@ -301,7 +279,7 @@ class Write(nn.Module):
             #print(f'out: {out.size()}, c_t: {c_t.size()}, h_t: {h_t.size()}')
 
             # Attention section
-            hidden_t, output = self.att(h_t, context, torch.eq(mask, 0)) ##here hidden is the attention vector and output is the attention weights for each memory vector, cf the attetion function
+            hidden_t, output = self.att(h_t, context, torch.eq(mask, 0))
             hidden_t = torch.tanh(self.hidden_out(torch.cat((hidden_t, h_t), 1)))
 
             return hidden_t, c_t, output
@@ -315,18 +293,18 @@ class Write(nn.Module):
 
             # Get maximum probabilities and indices
             max_probs, indices = masked_outs.max(1)
-            one_hot_pointers = (runner == indices.unsqueeze(1).expand(-1, outs.size()[1])).float() #shape (batch_size, seq_len)
+            one_hot_pointers = (runner == indices.unsqueeze(1).expand(-1, outs.size()[1])).float()
 
-            # Update mask to ignore seen indices #shape (batch_size, seq_len)
+            # Update mask to ignore seen indices
             mask  = mask * (1 - one_hot_pointers)
 
             # Get embedded inputs by max indices
             #embedding_mask = one_hot_pointers.unsqueeze(2).expand(-1, -1, self.embedding_dim).byte()
             embedding_mask = one_hot_pointers.unsqueeze(1).expand(-1, self.embedding_dim, -1).byte()
-            decoder_input = embedded_inputs[embedding_mask.data].view(batch_size, self.embedding_dim) #shape (batch_size, hidden_dim) because only 1 element of the set is set to true for each set of the batch in one_hot_pointers
+            decoder_input = embedded_inputs[embedding_mask.data].view(batch_size, self.embedding_dim)
 
-            outputs.append(outs.unsqueeze(0)) #list of element of shape (1, batch_size, n_set)
-            pointers.append(indices.unsqueeze(1)) #list of element of shape (batch_size, 1)
+            outputs.append(outs.unsqueeze(0))
+            pointers.append(indices.unsqueeze(1))
 
         outputs = torch.cat(outputs).permute(1, 0, 2)
         pointers = torch.cat(pointers, 1)
@@ -338,19 +316,17 @@ class ReadProcessWrite(nn.Module):
     """
     The full read-process-write from the order matters paper.
     """
-    def __init__(self, hidden_dims, lstm_steps, batch_size, input_dim=1, reader='linear'):
+    def __init__(self, hidden_dim, lstm_steps, batch_size, input_dim=1, reader='linear'):
         super(ReadProcessWrite, self).__init__()
-        self.readers_dict = {'linear': ReadLinear, 'words': ReadWordEncoder, 'videos': ReadLinear}
+        self.readers_dict = {'linear': ReadLinear, 'words': ReadWordEncoder}
         
         #print(f'hidden_dim: {hidden_dim}, input_dim: {input_dim}')
-        self.decoder_input0 = nn.Parameter(torch.zeros(hidden_dims[-1]))
-        self.read = self.readers_dict[reader](hidden_dims, input_dim)
-        self.process = Process(hidden_dims[-1], hidden_dims[-1], lstm_steps, batch_size)
-        self.write = Write(hidden_dims[-1], hidden_dims[-1])
+        self.decoder_input0 = nn.Parameter(torch.zeros(hidden_dim))
+        self.read = self.readers_dict[reader](hidden_dim, input_dim)
+        self.process = Process(hidden_dim, hidden_dim, lstm_steps, batch_size)
+        self.write = Write(hidden_dim, hidden_dim)
         self.batch_size = batch_size
-        
-        self.process_to_write_h = nn.Linear(hidden_dims[-1] * 2, hidden_dims[-1]) #linear layer to project q_t_star to the output_state h_t of the write block
-        self.process_to_write_c = nn.Linear(hidden_dims[-1] * 2, hidden_dims[-1]) #linear layer to project q_t_star to the cell state c_t of the write block
+        self.process_to_write = nn.Linear(hidden_dim * 2, hidden_dim) #linear layer to project q_t_star to the hidden size of the write block
         
     def forward(self, x):
         batch_size = x.size(0)
@@ -360,8 +336,8 @@ class ReadProcessWrite(nn.Module):
         #print(f'q_t_star shape: {q_t_star.size()}')
         
         #We project q_t_star using a linear layer to the hidden size of the write block to be the initial hidden state
-        write_block_hidden_state_0 = self.process_to_write_c(q_t_star) #shape (batch_size, hidden_dim)
-        write_block_output_state_0 = self.process_to_write_h(q_t_star) #shape (batch_size, hidden_dim)
+        write_block_hidden_state_0 = self.process_to_write(q_t_star) #shape (batch_size, hidden_dim)
+        write_block_output_state_0 = self.decoder_input0.unsqueeze(0).expand(batch_size, -1) #shape (batch_size, hidden_dim)
         decoder_input0 = self.decoder_input0.unsqueeze(0).expand(batch_size, -1) #shape (batch_size, hidden_dim)
         
         #print('decoder_input0: ', decoder_input0)

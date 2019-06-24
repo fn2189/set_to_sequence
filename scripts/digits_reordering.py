@@ -1,10 +1,8 @@
 """
 RUN EXAMPLE: 
-- Digits: python scripts/digits_reordering.py --pickle-file pickles/digits_reordering_10000_2000_5_2019-06-18_13:15:34.234123.pkl  --hidden-dims 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 20 --saveprefix checkpoints/digits/ --tensorboard-saveprefix tensorboard/digits/ --print-offset 100
+- Digits: python scripts/digits_reordering.py --pickle-file pickles/digits_reordering_10000_2000_10_2019-04-26_17:28:01.111497.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100
 
-- Words: python scripts/digits_reordering.py --pickle-file pickles/words_reordering_100000_20000_5_2019-06-24_16:30:18.534089.pkl  --hidden-dims 32 --lstm-steps 10 --lr 1e-4 --batch-size 64 --epochs 20 --saveprefix checkpoints/words/ --tensorboard-saveprefix tensorboard/words/ --print-offset 50 --reader words --input-dim 26
-
-- Videos: python scripts/digits_reordering.py --pickle-file pickles/video_reordering_18374_3937_5_2019-06-18_11:45:26.327081.pkl  --hidden-dims 512 512 --lstm-steps 10 --lr 1 --batch-size 128 --epochs 100 --saveprefix checkpoints/videos/ --tensorboard-saveprefix tensorboard/videos/ --print-offset 100 --reader videos --input-dim 1280
+- Words: python scripts/digits_reordering.py --pickle-file pickles/words_reordering_1.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader words --input-dim 26
 """
 
 # Usual imports
@@ -12,7 +10,6 @@ import time
 import math
 import numpy as np
 import os
-#import matplotlib.pyplot as plt
 import argparse
 import pickle
 from glob import glob
@@ -30,11 +27,11 @@ from torch.optim import Adam
 from tensorboardX import SummaryWriter
 
 #my modules
-from dataset import DigitsDataset, WordsDataset, VideosDataset
+from dataset import DigitsDataset, WordsDataset
 from order_matters import ReadProcessWrite
 
 
-DATASET_CLASSES = {'linear': DigitsDataset, 'words': WordsDataset, 'videos': VideosDataset}
+DATASET_CLASSES = {'linear': DigitsDataset, 'words': WordsDataset}
 
 def main():
     if torch.cuda.is_available():
@@ -83,7 +80,7 @@ def main():
         device = torch.cuda.current_device()
         #model.cuda()
         device = f'cuda:{torch.cuda.current_device()}' if torch.cuda.is_available() else 'cpu'
-        model.to(device) 
+        model.to(device)
         net = torch.nn.DataParallel(model, device_ids=range(torch.cuda.device_count()))
         cudnn.benchmark = True
         
@@ -119,7 +116,7 @@ def train(train_loader, val_loader, model, criterion, optimizer, epoch, writer):
     running_loss = 0.0
     loader_len = len(train_loader)
     for i, data in enumerate(train_loader, 0):
-        X, Y, additional_dict = data
+        X, Y = data
         
         # Transfer to GPU
         device = f'cuda:{torch.cuda.current_device()}' if torch.cuda.is_available() else 'cpu'
@@ -167,7 +164,7 @@ def val(val_loader, model, criterion, epoch=0):
     with torch.set_grad_enabled(False):
         val_loss = 0.0
         for cpt, data in enumerate(val_loader, 0):
-            X, Y, additional_dict = data
+            X, Y = data
 
             # Transfer to GPU
             #local_batch, local_labels = local_batch.to(device), local_labels.to(device)
@@ -190,7 +187,7 @@ def val(val_loader, model, criterion, epoch=0):
 
 def create_model(args):
     print("=> creating model")
-    model = ReadProcessWrite(args.hidden_dims, args.lstm_steps, args.batch_size, input_dim= args.input_dim, reader=args.reader)
+    model = ReadProcessWrite(args.hidden_dim, args.lstm_steps, args.batch_size, input_dim= args.input_dim, reader=args.reader)
     
     if args.resume:
         if os.path.isfile(args.resume):
@@ -260,8 +257,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='CNN Music Structure training')
     parser.add_argument('--pickle-file', type=str,
                         help='file from which to load the dictionnary containing the training data info')
-    parser.add_argument('--hidden-dims', type=int, default=[256], nargs='+',
-                        help='list of number of hidden dimension for the for each layer of the read block. The last on is also the hidden_dim of the process and write blocks')
+    parser.add_argument('--hidden-dim', type=int, default=256,
+                        help='number of hidden dimension for the reader/processor/writer')
     parser.add_argument('--lstm-steps', type=int, default=5,
                         help='number of steps for the self attention process block')
     parser.add_argument('--lr', type=float, default=1e-4,

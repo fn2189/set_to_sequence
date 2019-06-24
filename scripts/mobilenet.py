@@ -18,8 +18,8 @@ __all__ = ['MobileNetV1', 'MobileNetV2', 'mnv1', 'mnv2']
 
 
 pretrained_model_fnames = { 
-    'mnv1': '/home/franck/TRASH/set_to_sequence/data/mnv1/mobilenet_sgd_rmsprop_69.526.tar',
-    'mnv2': '/home/ubuntu/set_to_sequence/data/mnv2/mobilenet_v2.pth.tar',
+    'mnv1': '../data/mnv1/mobilenet_sgd_rmsprop_69.526.tar',
+    'mnv2': '../data/mnv2/mobilenet_v2.pth.tar',
 }
 
 

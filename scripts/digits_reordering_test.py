@@ -1,8 +1,8 @@
 """
 RUN EXAMPLE: 
-- digits: python scripts/digits_reordering_test.py --pickle-file pickles/digits_reordering_10000_2000_5_2019-06-18_13:15:34.234123.pkl --resume checkpoints/5/ep_10_map_inf_latest.pth.tar --hidden-dims 32 --lstm-steps 10
+- digits: python scripts/digits_reordering_test.py --pickle-file pickles/digits_reordering_10000_2000_10_2019-04-26_17:28:01.111497.pkl --resume checkpoints/3/ep_10_map_inf_latest.pth.tar --hidden-dim 32 --lstm-steps 10
 
-- words: python scripts/digits_reordering_test.py --pickle-file pickles/words_reordering_10000_2000_5_2019-06-18_12:32:55.406161.pkl --resume checkpoints/1/ep_100_map_inf_latest.pth.tar --hidden-dim 32 --lstm-steps 10 --reader words --input-dim 26
+- words: python scripts/digits_reordering_test.py --pickle-file pickles/words_reordering_1.pkl --resume checkpoints/3/ep_100_map_inf_latest.pth.tar --hidden-dim 32 --lstm-steps 10 --reader words --input-dim 26
 """
 
 # Usual imports
@@ -10,7 +10,7 @@ import time
 import math
 import numpy as np
 import os
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import argparse
 import pickle
 from glob import glob
@@ -86,7 +86,7 @@ def test(test_loader, model):
     total_orders = 0
     loader_len = len(test_loader)
     for i, data in enumerate(test_loader, 0):
-        X, Y, additional_dict = data
+        X, Y = data
         # Transfer to GPU
         device = f'cuda:{torch.cuda.current_device()}' if torch.cuda.is_available() else 'cpu'
         X, Y = X.to(device).float(), Y.to(device)
@@ -153,8 +153,8 @@ if __name__ == '__main__':
                         help='the batch size to use for training')
     parser.add_argument('-j', '--workers', default=4, type=int, metavar='N',
                         help='number of data loading workers (default: 4)')
-    parser.add_argument('--hidden-dims', type=int, default=[256], nargs='+',
-                        help='list of number of hidden dimension for the for each layer of the read block. The last on is also the hidden_dim of the process and write blocks')
+    parser.add_argument('--hidden-dim', type=int, default=256,
+                        help='number of hidden dimension for the reader/processor/writer')
     parser.add_argument('--lstm-steps', type=int, default=5,
                         help='number of steps for the self attention process block')
     parser.add_argument('--reader', default='linear', type=str, 

@@ -1,10 +1,9 @@
 """
-example run: python scripts/videos_dataset_generation.py --glob-str "/home/ubuntu/s3-drive/RLY/RLYMedia/*.mp4" --n-set 5 --batch-size 128
-
-python scripts/videos_dataset_generation.py --glob-str "/MediaArchivePool/datasets/video/Moments_In_Time/Moments_in_Time_Raw/validation/[a-h]*/*" --n-set 5 --batch-size 64
+example run: python scripts/videos_dataset_generation.py --glob-str "/MediaArchivePool/datasets/video/Moments_In_Time/Moments_in_Time_Raw/validation/[a-h]*/*" --n-set 5
 """
 
 
+from matplotlib import pyplot as plt
 from glob import glob
 import numpy as np
 import pandas as pd
@@ -14,8 +13,6 @@ import random
 import pickle 
 import argparse
 from datetime import datetime
-import pdb
-import math
 
 
 from PIL import Image
@@ -29,7 +26,7 @@ import torchvision
 from torchvision import transforms
 
 
-sys.path.append('.')
+sys.path.append('..')
 from scripts.mobilenet import mnv2, pretrained_model_fnames
 
 
@@ -44,15 +41,12 @@ def main():
                         help='size of the set')
     parser.add_argument('--output-folder', type=str, default='./pickles',
                        help='Where to save the generated pickle file')
-    parser.add_argument('--batch-size', type=int, default=128,
-                       help='the maximum number of frames whose feature can be computed in a single batch. This is to e adapted to hardware capabilities')
     
     args = parser.parse_args()
     
     videos = glob(args.glob_str)
     
     N_SET = args.n_set
-    """
     b_dict = {}
     for i in range(len(videos)):
         metadata = skvideo.io.ffprobe(videos[i])
@@ -62,7 +56,7 @@ def main():
         for i in range(1, len(boundaries)):
             boundaries[i] = boundaries[i] - boundaries[i-1]
         b_dict[videos[i]] = boundaries
-     """   
+        
         
     # This normalize is specific to ImageNet
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
@@ -78,8 +72,6 @@ def main():
     
     #TO DO: expose other kwargs for the model through command line args
     model = mnv2(pretrained=True, freeze=False) #look at ../scripts/mobilenet.py to see additional args
-    if torch.cuda.is_available():
-        model.cuda() 
     
     n_videos = len(videos)
     n_train = int(n_videos*.7)
@@ -88,169 +80,74 @@ def main():
     train_videos = random.sample(videos, n_train)
     not_train = [x for x in videos if x not in train_videos]
     val_videos = random.sample(not_train, n_val)
-    test_videos = [x for x in not_train if x not in val_videos]
+    test_videos = [x for x in not_train if x not in not_train]
     
     
     data_dict = {'train': [], 'test': [], 'val': []}
-    #Entering debugger
-    #pdb.set_trace()
     for i, vid in enumerate(train_videos):
-        #print(f'{i}: {vid}')
-        X, y, B = compute_features(test_trans, model, train_videos[i], n_set=N_SET, batch_size=args.batch_size)
-        # We need to account for the videos that are to short, that we discard
-        if X is None:
-            continue
-        data_dict['train'].append((X, y, vid, B))
-        if (i+1) % 100 == 0:
-            print(f'Computed features for video {i}: {train_videos[i]}')
-    print('Training set done')
-    
+        X, y = compute_features(test_trans, model, train_videos[i], n_set=N_SET)
+        data_dict['train'].append((X, y, vid))
+
     for i, vid in enumerate(val_videos):
-        X, y, B = compute_features(test_trans, model, val_videos[i], n_set=N_SET, batch_size=args.batch_size)
-        # We need to account for the videos that are to short, that we discard
-        if X is None:
-            continue
-        data_dict['val'].append((X, y, vid, B))
-        if (i+1) % 100 == 0:
-            print(f'Computed features for video {i}: {val_videos[i]}')
-    print('Val set done')
+        X, y = compute_features(test_trans, model, val_videos[i], n_set=N_SET)
+        data_dict['val'].append((X, y, vid))
 
     for i, vid in enumerate(test_videos):
-        X, y, B = compute_features(test_trans, model, test_videos[i], n_set=N_SET, batch_size=args.batch_size)
-        # We need to account for the videos that are to short, that we discard
-        if X is None:
-            continue
-        data_dict['test'].append((X, y, vid, B))
-        if (i+1) % 100 == 0:
-            print(f'Computed features for video {i}: {test_videos[i]}')
-            
-    print('Test set done')
+        X, y = compute_features(test_trans, model, test_videos[i], n_set=N_SET)
+        data_dict['test'].append((X, y, vid))
         
         
     dt = str(datetime.now()).replace(' ', '_')
-    filename = f'video_reordering_{n_train}_{n_val}_{args.n_set}_{dt}.pkl'
+    filename = f'video_reordering_{args.n_train}_{args.n_val}_{args.n_set}_{dt}.pkl'
     
     with open(f'{args.output_folder}/{filename}', 'wb') as f:
-        pickle.dump(data_dict, f)
+        pickle.dump(dict_data, f)
         
     return
 
 
 
     
-def compute_features(transform, model, videofile, n_set=5, batch_size=64):
-    
-    
-    
-    """
-    ### Since there seems to be sporadic I/O bugs, I retry 10 times so I loop for 10 times (for the retries and I break if success (if 
-    ###len(outputs) > 0
-    outputs = []
-    
-    #try:
+def compute_features(transform, model, videofile, n_set=5):
     vid_in = skvideo.io.FFmpegReader(videofile)
-    #except:
-    #    print(f'error in video reading for video file: {videofile}')
-    #    return None, None, None
-    (length, _, _, _) = vid_in.getShape() # numFrame x H x W x channels
-
-    if length < 30:
-        return None, None, None
-
-    n_frames_per_block = [0]*n_set
-    ## We don't want a segment to be less than 2 frames so we keep regenerating boundaries
-    ## Until that condition is met
-    while min(n_frames_per_block) < 2: 
-        #print(f'length: {length}')
-        boundaries = [0] + sorted(random.sample(range(length-1), n_set-1)) + [length-1]    
-        n_frames_per_block = [boundaries[i] - boundaries[i-1] for i in range(1, len(boundaries))]
-
-    #print(n_frames_per_block)
-
     set_vectors = []
-    frames_iterator = vid_in.nextFrame()
     if torch.cuda.is_available():
-        model.cuda() 
-
-
-    cpt=0
-    input_frames_array = []
-
-    for frame in frames_iterator:
-        input_frame = transform(Image.fromarray(frame))
-        input_frames_array.append(input_frame)
-        cpt+=1
-
-        if cpt % batch_size == 0:
-            input_frames = torch.stack(input_frames_array, dim=0)
+        model.cuda()
+    for i in range(n_set):
+        predictions = []
+        cpt = 0
+        frames_iterator = tqdm(vid_in)
+        #for idx, frame in  enumerate(tqdm(vid_in)):
+        while cpt < boundaries[i]:
+            input_frame = transform(Image.fromarray(frame))
             with torch.no_grad():
-                input_imgs_var = torch.autograd.Variable(input_frames)
+                input_img_var = torch.autograd.Variable(input_frame)
             if torch.cuda.is_available():
-                input_imgs_var = input_imgs_var.cuda()
+                input_img_var = input_img_var.cuda()
 
             # compute output
-            #try:
-            output = model(input_imgs_var)
-            #except:
-            #    print(f'input_imgs_var size: {input_imgs_var.size()}')
-            #    raise ValueError('RuntimeError: CUDA error: out of memory')
-
+            output = model(input_img_var.unsqueeze(0))
+            # this assumes that the model has two outputs 
+            # ['emb'] and ['prob'] and we want the first output
             if torch.cuda.is_available():
-                output = output.cpu()
+                output = output[0].cpu().data.numpy()
 
-            output = output.data.numpy()
-            outputs.append(output)
-            input_frames_array = []
+            # check that output has same dimensionality as expected labels
+            #assert output.shape[1] == len(all_classes)
+            predictions.append(output)
+            cpt += 1
 
-    ##Computing the last batch at the end of the loop
-    if len(input_frames_array) > 0:
-        input_frames = torch.stack(input_frames_array, dim=0)
-        with torch.no_grad():
-            input_imgs_var = torch.autograd.Variable(input_frames)
-        if torch.cuda.is_available():
-            input_imgs_var = input_imgs_var.cuda()
-
-        # compute output
-        #try:
-
-        output = model(input_imgs_var)
-        #except:
-        #    print(f'input_imgs_var size: {input_imgs_var.size()}')
-        #    raise ValueError('RuntimeError: CUDA error: out of memory')
-
-        if torch.cuda.is_available():
-            output = output.cpu()
-
-        output = output.data.numpy()
-        outputs.append(output)
-        input_frames_array = []
-
-    try:
-        vidout = outputs[0] if len(outputs) == 1 else np.concatenate(outputs, axis=0)
-    except:
-        print(f'ouputs empty for video file: {videofile}')
-        raise ValueError('AssertionError')
-        #return None, None, None
-            
-            
-            
-    ## Now we use the randomly sampled boundaries to define the video segments segments
-    segments = [vidout[boundaries[i-1]:boundaries[i]] for i in range(1,len(boundaries))]
-    #print(f'len(segments): {len(segments)}')
-    
-    ### We average the features of the frames belonging to each segment to compute the features for the segment
-    set_vectors =[x.mean(axis=0) for x in segments]
-    
-        
-        
-    #Closing the video stream
-    vid_in.close()
+        vidout = np.array(predictions) 
+        vidout = vidout.mean(axis=0)
+        #print(vidout.shape)
+        set_vectors.append(vidout)
+        vid_in.close()
         
     #This is the random order in which we shuffle the "blocks" of the video
     #So we need to figure out the inverse permutation function that is going to serve as the correct order
     random_order = random.sample(range(n_set), n_set)
     y = np.zeros(n_set, dtype=int)
-    #print(random_order, len(set_vectors))
+    print(random_order, len(set_vectors))
     for k, v in enumerate(random_order):
         y[v] = k
     # we reorder the feature representation of the blocks now that we have computed the the correct order from the 
@@ -258,92 +155,7 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
     set_vectors = [set_vectors[x] for x in random_order]
     X = np.stack(set_vectors, axis=0)
         
-    return X, y, boundaries
-    """
-    #pdb.set_trace()
-    video = skvideo.io.vread(videofile)
-    length = video.shape[0]
-    
-    if length < 30:
-        return None, None, None
-
-    n_frames_per_block = [0]*n_set
-    ## We don't want a segment to be less than 2 frames so we keep regenerating boundaries
-    ## Until that condition is met
-    while min(n_frames_per_block) < 2: 
-        #print(f'length: {length}')
-        boundaries = [0] + sorted(random.sample(range(length-1), n_set-1)) + [length-1]    
-        n_frames_per_block = [boundaries[i] - boundaries[i-1] for i in range(1, len(boundaries))]
-        
-    
-    #set_vectors = []
-    
-        
-    
-
-    runs = math.ceil((length/batch_size))
-    outputs = []
-
-    for i in range(runs):
-        """
-        input_frames = torch.from_numpy(video[j*batch_size:min((j+1)*batch_size, video.shape[0]-1),:,:,:]).permute(0,3,1,2)
-        input_frames = input_frames.type(torch.FloatTensor)
-        with torch.no_grad():
-            input_imgs_var = torch.autograd.Variable(input_frames)
-        if torch.cuda.is_available():
-            input_imgs_var = input_imgs_var.cuda()
-        
-        print(f'Size: {input_imgs_var.size()}')
-        """
-        input_frames_array = []
-        for j in range(i*batch_size,min((i+1)*batch_size, video.shape[0])):
-            frame = video[j,:,:,:]
-            input_frame = transform(Image.fromarray(frame))
-            input_frames_array.append(input_frame)
-            
-        input_frames = torch.stack(input_frames_array, dim=0)
-        with torch.no_grad():
-            input_imgs_var = torch.autograd.Variable(input_frames)
-        if torch.cuda.is_available():
-            input_imgs_var = input_imgs_var.cuda()
-        # compute output
-        #try:
-        output = model(input_imgs_var)
-        #except:
-        #    print(f'input_imgs_var size: {input_imgs_var.size()}')
-        #    raise ValueError('RuntimeError: CUDA error: out of memory')
-
-        if torch.cuda.is_available():
-            output = output.cpu()
-
-        output = output.data.numpy()
-        outputs.append(output)
-            
-    vidout = outputs[0] if len(outputs) == 1 else np.concatenate(outputs, axis=0)
-                     
-    ## Now we use the randomly sampled boundaries to define the video segments segments
-    segments = [vidout[boundaries[i-1]:boundaries[i]] for i in range(1,len(boundaries))]
-    #print(f'len(segments): {len(segments)}')
-    
-    ### We average the features of the frames belonging to each segment to compute the features for the segment
-    set_vectors =[x.mean(axis=0) for x in segments]
-        
-    #This is the random order in which we shuffle the "blocks" of the video
-    #So we need to figure out the inverse permutation function that is going to serve as the correct order
-    random_order = random.sample(range(n_set), n_set)
-    y = np.zeros(n_set, dtype=int)
-    #print(random_order, len(set_vectors))
-    for k, v in enumerate(random_order):
-        y[v] = k
-    # we reorder the feature representation of the blocks now that we have computed the the correct order from the 
-    #shuffled one
-    set_vectors = [set_vectors[x] for x in random_order]
-    X = np.stack(set_vectors, axis=0)
-        
-    return X, y, boundaries
-            
-    
-    
+    return X, y
     
     
 if __name__ == '__main__':
