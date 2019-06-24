@@ -2,7 +2,7 @@
 RUN EXAMPLE: 
 - digits: python scripts/digits_reordering_test.py --pickle-file pickles/digits_reordering_10000_2000_5_2019-06-18_13:15:34.234123.pkl --resume checkpoints/5/ep_10_map_inf_latest.pth.tar --hidden-dims 32 --lstm-steps 10
 
-- words: python scripts/digits_reordering_test.py --pickle-file pickles/words_reordering_10000_2000_5_2019-06-18_12:32:55.406161.pkl --resume checkpoints/3/ep_100_map_inf_latest.pth.tar --hidden-dim 32 --lstm-steps 10 --reader words --input-dim 26
+- words: python scripts/digits_reordering_test.py --pickle-file pickles/words_reordering_10000_2000_5_2019-06-18_12:32:55.406161.pkl --resume checkpoints/1/ep_100_map_inf_latest.pth.tar --hidden-dim 32 --lstm-steps 10 --reader words --input-dim 26
 """
 
 # Usual imports

@@ -1,5 +1,5 @@
 """
-example run: python scripts/words_dataset_generation.py --n-train 10000 --n-val 2000 --n-test 200 --n-set 5 --max-length 25 --min-length 5
+example run: python scripts/words_dataset_generation.py --n-train 100000 --n-val 20000 --n-test 2000 --n-set 5 --max-length 25 --min-length 5
 """
 import numpy as np
 import pickle 

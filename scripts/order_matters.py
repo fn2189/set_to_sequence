@@ -134,7 +134,6 @@ class Process(nn.Module):
                 r_t_1 = i0
             h_t, c_t = self.lstmcell(r_t_1, (h_t_1, c_t_1))
             d_k = h_t.size(-1)
-            h_t.size(-1)
             
             #h_t is of shape (batch_size, hidden_dim) so we expand it
             #try:
@@ -149,8 +148,7 @@ class Process(nn.Module):
             p_attn = F.softmax(scores, dim = -1)
             if dropout is not None:
                 p_attn = dropout(p_attn)
-            r_t_1 = torch.matmul(M, p_attn).squeeze(-1)
-            #print(f'r_t_1: {r_t_1.size()}')
+            r_t_1 = torch.matmul(M, p_attn).squeeze(-1) #shape (batch_size, hidden_dim)
             h_t_1 = h_t
             c_t_1 = c_t
         return (r_t_1, h_t_1)
@@ -191,7 +189,7 @@ class Attention(nn.Module):
         :param Tensor input: Hidden state h (as said in the Pointer's Network paper:  For the LSTM RNNs, 
         we use the state after the output gate has been component-wise multiplied by the cell activations. #(batch_size, hidden_dim)
         
-        :param Tensor context: Attention context #(batch_size, idden_dim, seq_len)
+        :param Tensor context: Attention context #(batch_size, hidden_dim, seq_len)
         :param ByteTensor mask: Selection mask #(batch_size, n_set)
         
         :return: tuple of - (Attentioned hidden state, Alphas)
@@ -211,7 +209,7 @@ class Attention(nn.Module):
         if len(att[mask]) > 0:
             att[mask] = self.inf[mask]
         
-        alpha = self.softmax(att)
+        alpha = self.softmax(att) #(batch, seq_len)
 
         hidden_state = torch.bmm(ctx, alpha.unsqueeze(2)).squeeze(2)
 
@@ -261,7 +259,7 @@ class Write(nn.Module):
         """
 
         batch_size = embedded_inputs.size(0)
-        # The size of the set
+        # input_length == n_set
         input_length = embedded_inputs.size(2)
 
         # (batch, seq_len)
@@ -291,7 +289,6 @@ class Write(nn.Module):
             #print(f'x shape: {x.size()}')
             
             gates = self.input_to_hidden(x) + self.hidden_to_hidden(h.squeeze())
-            #gates = self.hidden_to_hidden(h.squeeze())
             input, forget, cell, out = gates.chunk(4, 1)
 
             input = torch.sigmoid(input)
@@ -304,7 +301,7 @@ class Write(nn.Module):
             #print(f'out: {out.size()}, c_t: {c_t.size()}, h_t: {h_t.size()}')
 
             # Attention section
-            hidden_t, output = self.att(h_t, context, torch.eq(mask, 0))
+            hidden_t, output = self.att(h_t, context, torch.eq(mask, 0)) ##here hidden is the attention vector and output is the attention weights for each memory vector, cf the attetion function
             hidden_t = torch.tanh(self.hidden_out(torch.cat((hidden_t, h_t), 1)))
 
             return hidden_t, c_t, output
@@ -318,18 +315,18 @@ class Write(nn.Module):
 
             # Get maximum probabilities and indices
             max_probs, indices = masked_outs.max(1)
-            one_hot_pointers = (runner == indices.unsqueeze(1).expand(-1, outs.size()[1])).float()
+            one_hot_pointers = (runner == indices.unsqueeze(1).expand(-1, outs.size()[1])).float() #shape (batch_size, seq_len)
 
-            # Update mask to ignore seen indices
+            # Update mask to ignore seen indices #shape (batch_size, seq_len)
             mask  = mask * (1 - one_hot_pointers)
 
             # Get embedded inputs by max indices
             #embedding_mask = one_hot_pointers.unsqueeze(2).expand(-1, -1, self.embedding_dim).byte()
             embedding_mask = one_hot_pointers.unsqueeze(1).expand(-1, self.embedding_dim, -1).byte()
-            decoder_input = embedded_inputs[embedding_mask.data].view(batch_size, self.embedding_dim)
+            decoder_input = embedded_inputs[embedding_mask.data].view(batch_size, self.embedding_dim) #shape (batch_size, hidden_dim) because only 1 element of the set is set to true for each set of the batch in one_hot_pointers
 
-            outputs.append(outs.unsqueeze(0))
-            pointers.append(indices.unsqueeze(1))
+            outputs.append(outs.unsqueeze(0)) #list of element of shape (1, batch_size, n_set)
+            pointers.append(indices.unsqueeze(1)) #list of element of shape (batch_size, 1)
 
         outputs = torch.cat(outputs).permute(1, 0, 2)
         pointers = torch.cat(pointers, 1)
@@ -351,7 +348,9 @@ class ReadProcessWrite(nn.Module):
         self.process = Process(hidden_dims[-1], hidden_dims[-1], lstm_steps, batch_size)
         self.write = Write(hidden_dims[-1], hidden_dims[-1])
         self.batch_size = batch_size
-        self.process_to_write = nn.Linear(hidden_dims[-1] * 2, hidden_dims[-1]) #linear layer to project q_t_star to the hidden size of the write block
+        
+        self.process_to_write_h = nn.Linear(hidden_dims[-1] * 2, hidden_dims[-1]) #linear layer to project q_t_star to the output_state h_t of the write block
+        self.process_to_write_c = nn.Linear(hidden_dims[-1] * 2, hidden_dims[-1]) #linear layer to project q_t_star to the cell state c_t of the write block
         
     def forward(self, x):
         batch_size = x.size(0)
@@ -361,8 +360,8 @@ class ReadProcessWrite(nn.Module):
         #print(f'q_t_star shape: {q_t_star.size()}')
         
         #We project q_t_star using a linear layer to the hidden size of the write block to be the initial hidden state
-        write_block_hidden_state_0 = self.process_to_write(q_t_star) #shape (batch_size, hidden_dim)
-        write_block_output_state_0 = self.decoder_input0.unsqueeze(0).expand(batch_size, -1) #shape (batch_size, hidden_dim)
+        write_block_hidden_state_0 = self.process_to_write_c(q_t_star) #shape (batch_size, hidden_dim)
+        write_block_output_state_0 = self.process_to_write_h(q_t_star) #shape (batch_size, hidden_dim)
         decoder_input0 = self.decoder_input0.unsqueeze(0).expand(batch_size, -1) #shape (batch_size, hidden_dim)
         
         #print('decoder_input0: ', decoder_input0)
