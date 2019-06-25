@@ -290,8 +290,8 @@ class Write(nn.Module):
             #print(f'h shape: {h.size()}')
             #print(f'x shape: {x.size()}')
             
-            gates = self.input_to_hidden(x) + self.hidden_to_hidden(h.squeeze())
-            #gates = self.hidden_to_hidden(h.squeeze())
+            #gates = self.input_to_hidden(x) + self.hidden_to_hidden(h.squeeze())
+            gates = self.hidden_to_hidden(h.squeeze())
             input, forget, cell, out = gates.chunk(4, 1)
 
             input = torch.sigmoid(input)

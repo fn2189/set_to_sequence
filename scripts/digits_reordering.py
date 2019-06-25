@@ -2,7 +2,7 @@
 RUN EXAMPLE: 
 - Digits: python scripts/digits_reordering.py --pickle-file pickles/digits_reordering_10000_2000_5_2019-06-18_13:15:34.234123.pkl  --hidden-dims 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100
 
-- Words: python scripts/digits_reordering.py --pickle-file pickles/words_reordering_10000_2000_5_2019-06-18_12:32:55.406161.pkl  --hidden-dims 512 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 100 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader words --input-dim 26
+- Words: python scripts/digits_reordering.py --pickle-file pickles/words_reordering_10000_2000_5_2019-06-18_12:32:55.406161.pkl  --hidden-dims 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader words --input-dim 26
 
 - Videos: python scripts/digits_reordering.py --pickle-file pickles/video_reordering_18374_3937_5_2019-06-18_11:45:26.327081.pkl  --hidden-dims 512 512 --lstm-steps 10 --lr 1 --batch-size 128 --epochs 100 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader videos --input-dim 1280
 """
