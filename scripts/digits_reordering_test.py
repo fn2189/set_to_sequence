@@ -2,7 +2,9 @@
 RUN EXAMPLE: 
 - digits: python scripts/digits_reordering_test.py --pickle-file pickles/digits_reordering_10000_2000_5_2019-06-18_13:15:34.234123.pkl --resume checkpoints/5/ep_10_map_inf_latest.pth.tar --hidden-dims 32 --lstm-steps 10
 
-- words: python scripts/digits_reordering_test.py --pickle-file pickles/words_reordering_10000_2000_5_2019-06-18_12:32:55.406161.pkl --resume checkpoints/3/ep_100_map_inf_latest.pth.tar --hidden-dim 32 --lstm-steps 10 --reader words --input-dim 26
+- words: python scripts/digits_reordering_test.py --pickle-file pickles/words_reordering_english_2.pkl --resume checkpoints/3/ep_100_map_inf_latest.pth.tar --hidden-dim 32 --lstm-steps 10 --reader words --input-dim 26
+
+Videos: python scripts/digits_reordering_test.py --pickle-file pickles/video_reordering_18374_3937_5_2019-06-18_11:45:26.327081.pkl  --resume checkpoints/15/ep_100_map_inf_latest.pth.tar --hidden-dim 512 --lstm-steps 10  --reader videos --input-dim 1280 
 """
 
 # Usual imports
@@ -28,11 +30,11 @@ from torch.optim import Adam
 from tensorboardX import SummaryWriter
 
 #my modules
-from dataset import DigitsDataset, WordsDataset
-from order_matters import ReadProcessWrite
-from digits_reordering import create_model
+from dataset import DigitsDataset, WordsDataset, VideosDataset
+from order_matters_that_worked import ReadProcessWrite
+from digits_reordering_that_worked import create_model
 
-DATASET_CLASSES = {'linear': DigitsDataset, 'words': WordsDataset}
+DATASET_CLASSES = {'linear': DigitsDataset, 'words': WordsDataset, 'videos': VideosDataset}
 LETTERS = 'abcdefghijklmnopqrstuvwxyz'
 
 def main():
@@ -153,13 +155,15 @@ if __name__ == '__main__':
                         help='the batch size to use for training')
     parser.add_argument('-j', '--workers', default=4, type=int, metavar='N',
                         help='number of data loading workers (default: 4)')
-    parser.add_argument('--hidden-dims', type=int, default=[256], nargs='+',
-                        help='list of number of hidden dimension for the for each layer of the read block. The last on is also the hidden_dim of the process and write blocks')
+    parser.add_argument('--hidden-dim', type=int, default=256, 
+                        help='number of hidden dimension for the for each layer of the read block. ')
     parser.add_argument('--lstm-steps', type=int, default=5,
                         help='number of steps for the self attention process block')
     parser.add_argument('--reader', default='linear', type=str, 
                         help='what reader and dataset class ')
     parser.add_argument('--input-dim', default=1, type=int, 
                         help='dimension of the input ex: 1 for digits, 26 for words create from western alphabet')
+    parser.add_argument('--dropout', default=0.0, type=float, 
+                        help='dropout rate')
     args = parser.parse_args()
     main()

@@ -23,7 +23,7 @@ class ReadLinear(nn.Module):
         self.b = nn.Parameter(torch.randn(hidden_dim))
         self.nonlinearity = nn.ReLU6()
         
-    def forward(self, x):
+    def forward(self, x, dropout=None):
         """
         x is a batch of sets of shape (batch size, input_dim, set_length) to fit the expected shape of conv1d
         """
@@ -32,6 +32,9 @@ class ReadLinear(nn.Module):
         x = x.permute(0,2,1).unsqueeze(-1) #shape (batch size, set_length, input_dim, 1)
         x = self.nonlinearity(torch.matmul(W, x)  + b) # shape (batch size, set_length, hidden_dim, 1)
         x = x.squeeze(-1).permute(0,2,1) # shape (batch size, hidden_dim, set_length)
+        
+        if dropout is not None:
+            x = dropout(x)
         
         return x
 
@@ -50,7 +53,7 @@ class ReadWordEncoder(nn.Module):
         super(ReadWordEncoder, self).__init__()
         self.lstm = nn.LSTM(input_size=input_size, hidden_size=hidden_dim, num_layers=1, batch_first=True)
         
-    def forward(self, x):
+    def forward(self, x, dropout=None):
         """
         x is of shape (batch_size, n_set, max_word_length, vocab_size)
         we need to loop over the batch size because lstm batch 1st take input (batch, seq_length, vocab_size)
@@ -62,6 +65,9 @@ class ReadWordEncoder(nn.Module):
             outputs, (h_n, c_n) =  self.lstm(x[i, :, :, :])
             l.append(h_n)
         res = torch.cat(l, dim=0).permute(0,2,1) #shape (batch_size, hidden_dim, n_set)
+        if dropout:
+            res = dropout(res)
+        
         return res
 
     
@@ -81,7 +87,7 @@ class ReadVideoEncoder(nn.Module):
         self.b = nn.Parameter(torch.randn(hidden_dim))
         self.nonlinearity = nn.ReLU6()
         
-    def forward(self, x):
+    def forward(self, x, dropout=None):
         """
         x is a batch of sets of shape (batch size, input_dim, set_length) to fit the expected shape of conv1d
         """
@@ -92,6 +98,9 @@ class ReadVideoEncoder(nn.Module):
         x = x.permute(0,2,1).unsqueeze(-1) #shape (batch size, set_length, input_dim, 1)
         x = self.nonlinearity(torch.matmul(W, x)  + b) # shape (batch size, set_length, hidden_dim, 1)
         x = x.squeeze(-1).permute(0,2,1) # shape (batch size, hidden_dim, set_length)
+        
+        if dropout is not None:
+            x = dropout(x)
         
         return x
     
@@ -282,7 +291,7 @@ class Write(nn.Module):
         outputs = []
         pointers = []
 
-        def step(x, hidden):
+        def step(x, hidden, dropout=None):
             """
             Recurrence step function
             :param Tensor x: Input at time t
@@ -295,8 +304,8 @@ class Write(nn.Module):
             #print(f'h shape: {h.size()}')
             #print(f'x shape: {x.size()}')
             
-            #gates = self.input_to_hidden(x) + self.hidden_to_hidden(h.squeeze())
-            gates = self.hidden_to_hidden(h.squeeze())
+            gates = self.input_to_hidden(x) + self.hidden_to_hidden(h.squeeze())
+            #gates = self.hidden_to_hidden(h.squeeze())
             input, forget, cell, out = gates.chunk(4, 1)
 
             input = torch.sigmoid(input)
@@ -346,7 +355,7 @@ class ReadProcessWrite(nn.Module):
     """
     The full read-process-write from the order matters paper.
     """
-    def __init__(self, hidden_dim, lstm_steps, batch_size, input_dim=1, reader='linear'):
+    def __init__(self, hidden_dim, lstm_steps, batch_size, input_dim=1, reader='linear', dropout=0):
         super(ReadProcessWrite, self).__init__()
         self.readers_dict = {'linear': ReadLinear, 'words': ReadWordEncoder, 'videos': ReadVideoEncoder}
         
@@ -357,16 +366,19 @@ class ReadProcessWrite(nn.Module):
         self.write = Write(hidden_dim, hidden_dim)
         self.batch_size = batch_size
         self.process_to_write = nn.Linear(hidden_dim * 2, hidden_dim) #linear layer to project q_t_star to the hidden size of the write block
+        self.dropout = nn.Dropout(dropout)
         
     def forward(self, x):
         batch_size = x.size(0)
-        M = self.read(x)
-        r_t, c_t = self.process(M)
+        M = self.read(x, dropout=self.dropout)
+        r_t, c_t = self.process(M, dropout=self.dropout)
         q_t_star = torch.cat([r_t, c_t], dim=-1) #shape (batch_size, 2*hidden_dim)
         #print(f'q_t_star shape: {q_t_star.size()}')
         
         #We project q_t_star using a linear layer to the hidden size of the write block to be the initial hidden state
         write_block_hidden_state_0 = self.process_to_write(q_t_star) #shape (batch_size, hidden_dim)
+        write_block_hidden_state_0 = self.dropout(write_block_hidden_state_0)
+        
         write_block_output_state_0 = self.decoder_input0.unsqueeze(0).expand(batch_size, -1) #shape (batch_size, hidden_dim)
         decoder_input0 = self.decoder_input0.unsqueeze(0).expand(batch_size, -1) #shape (batch_size, hidden_dim)
         

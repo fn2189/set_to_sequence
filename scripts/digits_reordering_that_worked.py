@@ -1,10 +1,10 @@
 """
 RUN EXAMPLE: 
-- Digits: python scripts/digits_reordering_that_worked.py --pickle-file pickles/digits_reordering_10000_2000_10_2019-04-26_17:28:01.111497.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100
+- Digits: python scripts/digits_reordering_that_worked.py --pickle-file pickles/digits_reordering_10000_2000_10_2019-04-26_17:28:01.111497.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --dropout 0
 
-- Words: python scripts/digits_reordering_that_worked.py --pickle-file pickles/words_reordering_1.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader words --input-dim 26
+- Words: python scripts/digits_reordering_that_worked.py --pickle-file pickles/words_reordering_1.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader words --input-dim 26 --dropout 0
 
-- Videos: python scripts/digits_reordering_that_worked.py --pickle-file pickles/video_reordering_18374_3937_5_2019-06-18_11:45:26.327081.pkl  --hidden-dim 512 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader videos --input-dim 1280
+- Videos: python scripts/digits_reordering_that_worked.py --pickle-file pickles/video_reordering_18374_3937_5_2019-06-18_11:45:26.327081.pkl  --hidden-dim 256 --lstm-steps 10 --lr 1e-4 --batch-size 128 --epochs 100 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 25 --reader videos --input-dim 1280 --dropout .2
 """
 
 # Usual imports
@@ -24,6 +24,7 @@ import torch.nn.functional as F
 from torch.utils import data
 from torch.backends import cudnn
 from torch.optim import Adam
+from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 #tensorboard
 from tensorboardX import SummaryWriter
@@ -31,6 +32,8 @@ from tensorboardX import SummaryWriter
 #my modules
 from dataset import DigitsDataset, WordsDataset, VideosDataset
 from order_matters_that_worked import ReadProcessWrite
+
+
 
 
 DATASET_CLASSES = {'linear': DigitsDataset, 'words': WordsDataset, 'videos': VideosDataset}
@@ -91,9 +94,13 @@ def main():
                                     model.parameters()),
                              lr=args.lr)
     
+    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10, verbose=False, threshold=0.0001, threshold_mode='rel', 
+                                  cooldown=0, min_lr=1e-6, eps=1e-08)
+    
+    
     best_val_loss = np.inf
     for ind, epoch in enumerate(range(args.epochs)):
-        val_loss = train(train_loader, val_loader, model, criterion, optimizer, epoch, writer)
+        val_loss = train(train_loader, val_loader, model, criterion, optimizer, epoch, writer, scheduler)
 
         
         is_best = val_loss > best_val_loss
@@ -110,7 +117,7 @@ def main():
 
     
     
-def train(train_loader, val_loader, model, criterion, optimizer, epoch, writer):
+def train(train_loader, val_loader, model, criterion, optimizer, epoch, writer, scheduler):
     
     model.train()
     
@@ -118,6 +125,9 @@ def train(train_loader, val_loader, model, criterion, optimizer, epoch, writer):
     running_loss = 0.0
     loader_len = len(train_loader)
     for i, data in enumerate(train_loader, 0):
+        
+        
+        
         X, Y, additional_dict = data
         
         # Transfer to GPU
@@ -143,8 +153,8 @@ def train(train_loader, val_loader, model, criterion, optimizer, epoch, writer):
         # print statistics
         running_loss += loss.item()
         if i % args.print_offset == args.print_offset -1:    # print every 10 mini-batches
-            print('[%d, %5d] loss: %.6f' %
-                  (epoch + 1, i + 1, running_loss /args.print_offset ))
+            print('[%d, %5d] loss: %.6f, learning_rate: %.6f' %
+                  (epoch + 1, i + 1, running_loss /args.print_offset, optimizer.param_groups[0]['lr'] ))
             #print(f'outputs: {outputs[:15,:]}, Y: {Y[:15]}')
             writer.add_scalar('data/losses/train_loss', running_loss/args.print_offset, i + 1 + epoch*loader_len)
             write_weights(args.weights_indices, args.parameters, writer, i + 1 + epoch*loader_len)
@@ -154,6 +164,9 @@ def train(train_loader, val_loader, model, criterion, optimizer, epoch, writer):
     # Validation
     avg_val_loss = val(val_loader, model, criterion, epoch)
     writer.add_scalar('data/losses/val_loss', running_loss/args.print_offset, (epoch+1)*loader_len)
+    
+    #Performing the scheduler step
+    scheduler.step(avg_val_loss)
     
     return avg_val_loss
     
@@ -189,7 +202,7 @@ def val(val_loader, model, criterion, epoch=0):
 
 def create_model(args):
     print("=> creating model")
-    model = ReadProcessWrite(args.hidden_dim, args.lstm_steps, args.batch_size, input_dim= args.input_dim, reader=args.reader)
+    model = ReadProcessWrite(args.hidden_dim, args.lstm_steps, args.batch_size, input_dim= args.input_dim, reader=args.reader, dropout=args.dropout)
     
     if args.resume:
         if os.path.isfile(args.resume):
@@ -289,5 +302,7 @@ if __name__ == '__main__':
                         help='what reader and dataset class ')
     parser.add_argument('--input-dim', default=1, type=int, 
                         help='dimension of the input ex: 1 for digits, 26 for words create from western alphabet')
+    parser.add_argument('--dropout', default=0.1, type=float, 
+                        help='dropout rate')
     args = parser.parse_args()
     main()
