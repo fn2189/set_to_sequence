@@ -147,8 +147,8 @@ def generate_set(N, n_set, max_length, min_length, w_list=None):
 def generate_word_from_list(i, w_list, max_length):
     LETTERS = 'abcdefghijklmnopqrstuvwxyz'
     LETTERS_DICT = {}
-    for i, letter in enumerate(LETTERS):
-        LETTERS_DICT[letter] = i
+    for _, letter in enumerate(LETTERS):
+        LETTERS_DICT[letter] = _
     
     word = w_list[i]
     encoding = np.zeros((max_length, len(LETTERS)))
