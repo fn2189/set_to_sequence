@@ -371,7 +371,9 @@ def compute_features_2(transform, image_model, flow_model, videofile, n_set=5, b
     resized_video = np.stack(resized_frames)
     img_pairs = np.stack([resized_video[:resized_video.shape[0]-1], resized_video[1:]]).transpose(1,4,0,2,3)
     
-    length = video.shape[0]
+    
+    
+    length = video.shape[0] - 1 ##because we lose an index y considering consecutive pairs of images
     
     if length < 30:
         return None, None, None
@@ -397,9 +399,14 @@ def compute_features_2(transform, image_model, flow_model, videofile, n_set=5, b
             
         input_frames = torch.stack(input_frames_array, dim=0)
         """
-        inputs = torch.from_numpy(img_pairs[i*batch_size, min((i+1)*batch_size, img_pairs.shape[0]),:,:,:,:])
-        
+        inputs = torch.from_numpy(img_pairs[i*batch_size:min((i+1)*batch_size, img_pairs.shape[0]),:,:,:,:])
+        #try:
             
+        inputs = inputs.float()
+        #except:
+        #    print(f'inputs: {inputs}')
+        
+        #print(f'inputs type: {inputs.type()}')    
         
         with torch.no_grad():
             inputs_var = torch.autograd.Variable(inputs)
@@ -410,15 +417,17 @@ def compute_features_2(transform, image_model, flow_model, videofile, n_set=5, b
         output1 = flow_model(inputs_var)
         if torch.cuda.is_available():
             output1 = output1.cpu()
-        output1 = output.transpose(0,2,3,1)
+        output1 = output1.permute(0,2,3,1)
 
-        output1 = output.data.numpy()
+        output1 = output1.data.numpy()
         
         ##pass the output of the flow model to the image model to compute features for each flow image
         input_frames_array = []
         for j in range(len(output1)):
             frame = output1[j,:,:,:]
-            frame[:,:,2] = 0 ##we add a 3rd channel to each flow to make it an image
+            frame = np.concatenate([frame, np.zeros((frame.shape[0], frame.shape[1], 1))], axis=-1) ##we add a 3rd channel to each flow to make it an image
+            frame = np.uint8(frame*255/np.max(frame)) #rescaling and converting to int to transform into PIL image
+            #print(f'frame : {frame.dtype}')
             input_frame = transform(Image.fromarray(frame))
             input_frames_array.append(input_frame)
             
