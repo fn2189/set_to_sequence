@@ -2,3 +2,6 @@ tensorboard/
 checkpoints/
 pickles/
 venv/
+data/
+
+moments_RGB_resnet50_imagenetpretrained.pth.tar

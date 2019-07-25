@@ -1,7 +1,7 @@
 """
-example run: python scripts/videos_dataset_generation.py --glob-str "/home/ubuntu/s3-drive/RLY/RLYMedia/*.mp4" --n-set 5 --batch-size 256 --with-flow
+example run: python scripts/videos_dataset_generation.py --glob-str "/home/ubuntu/s3-drive/RLY/RLYMedia_resized/*.mp4" --n-set 5 --batch-size 128  --arch resnet50
 
-python scripts/videos_dataset_generation.py --glob-str "/MediaArchivePool/datasets/video/Moments_In_Time/Moments_in_Time_Raw/validation/[a-h]*/*" --n-set 5 --batch-size 64 
+python scripts/videos_dataset_generation.py --glob-str "/MediaArchivePool/datasets/video/Moments_In_Time/Moments_in_Time_Raw/validation/[a-h]*/*" --n-set 5 --batch-size 64 --with-flow
 """
 
 
@@ -32,7 +32,9 @@ from torchvision import transforms
 
 sys.path.append('.')
 sys.path.append('./flownet2_pytorch')
+sys.path.append('../')
 from scripts.mobilenet import mnv2, pretrained_model_fnames
+from moments_models import models
 from flownet2_pytorch.models import FlowNet2
 
 
@@ -53,6 +55,8 @@ def main():
                        help='whether to use optical flow or raw images')
     parser.add_argument('--fp16', action='store_true', help='Run flow_model in pseudo-fp16 mode (fp16 storage fp32 math).')
     parser.add_argument("--rgb_max", type=float, default=255.)
+    parser.add_argument('--arch', type=str, default='mnv2',
+                        help='the architechture for the visual feature extractor model')
     
     args = parser.parse_args()
     
@@ -77,14 +81,17 @@ def main():
 
     input_size = 224
     test_trans = transforms.Compose([
-        transforms.Resize(int(input_size/0.875)),
+        #transforms.Resize(int(input_size/0.875)), ##Videos will be resized in advance
         transforms.CenterCrop(input_size),
         transforms.ToTensor(),
         normalize,
         ])
     
     #TO DO: expose other kwargs for the model through command line args
-    model = mnv2(pretrained=True, freeze=False) #look at ../scripts/mobilenet.py to see additional args
+    if args.arch == 'mnv2':
+        model = mnv2(pretrained=True, freeze=False) #look at ../scripts/mobilenet.py to see additional args
+    else:
+        model = models.load_model(args.arch)
     if torch.cuda.is_available():
         model.cuda() 
         
@@ -156,7 +163,7 @@ def main():
 
 
     
-def compute_features(transform, model, videofile, n_set=5, batch_size=64):
+def compute_features(transform, model, videofile, n_set=5, batch_size=64, boundaries=None, random_order=None):
     
     
     
@@ -279,21 +286,28 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
     return X, y, boundaries
     """
     #pdb.set_trace()
-    video = skvideo.io.vread(videofile)
+    try:
+        video = skvideo.io.vread(videofile)
+    except:
+        print('Videofile: ', videofile)
+        return None, None, None, None
+    
     length = video.shape[0]
     
     if length < 30:
-        return None, None, None
+        return None, None, None, None
 
     n_frames_per_block = [0]*n_set
     ## We don't want a segment to be less than 2 frames so we keep regenerating boundaries
     ## Until that condition is met
-    while min(n_frames_per_block) < 2: 
-        #print(f'length: {length}')
-        boundaries = [0] + sorted(random.sample(range(length-1), n_set-1)) + [length-1]    
-        n_frames_per_block = [boundaries[i] - boundaries[i-1] for i in range(1, len(boundaries))]
-        
     
+    if not boundaries:
+        while min(n_frames_per_block) < 2: 
+            #print(f'length: {length}')
+            boundaries = [0] + sorted(random.sample(range(length-1), n_set-1)) + [length-1]    
+            n_frames_per_block = [boundaries[i] - boundaries[i-1] for i in range(1, len(boundaries))]
+
+
     #set_vectors = []
     
         
@@ -326,7 +340,11 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
             input_imgs_var = input_imgs_var.cuda()
         # compute output
         #try:
-        output = model(input_imgs_var)
+        if getattr(model, 'features'): #resnet arch has a features methods so no need to remove last layer
+            #print('Returning features')
+            output = model.features(input_imgs_var)
+        else: #mnv2 does not
+            output = model(input_imgs_var)
         #except:
         #    print(f'input_imgs_var size: {input_imgs_var.size()}')
         #    raise ValueError('RuntimeError: CUDA error: out of memory')
@@ -348,7 +366,8 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
         
     #This is the random order in which we shuffle the "blocks" of the video
     #So we need to figure out the inverse permutation function that is going to serve as the correct order
-    random_order = random.sample(range(n_set), n_set)
+    if random_order is None:
+        random_order = random.sample(range(n_set), n_set)
     y = np.zeros(n_set, dtype=int)
     #print(random_order, len(set_vectors))
     for k, v in enumerate(random_order):
@@ -358,10 +377,11 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64):
     set_vectors = [set_vectors[x] for x in random_order]
     X = np.stack(set_vectors, axis=0)
         
-    return X, y, boundaries
+    return X, y, boundaries, random_order
             
-def compute_features_2(transform, image_model, flow_model, videofile, n_set=5, batch_size=64):
+def compute_features_2(transform, image_model, flow_model, videofile, n_set=5, batch_size=64, boundaries=None, random_order=None):
     
+    #pdb.set_trace()
     video = skvideo.io.vread(videofile)
     
     ##need to resize all the video to the same shape
@@ -376,15 +396,18 @@ def compute_features_2(transform, image_model, flow_model, videofile, n_set=5, b
     length = video.shape[0] - 1 ##because we lose an index y considering consecutive pairs of images
     
     if length < 30:
-        return None, None, None
+        return None, None, None, None
 
     n_frames_per_block = [0]*n_set
     ## We don't want a segment to be less than 2 frames so we keep regenerating boundaries
     ## Until that condition is met
-    while min(n_frames_per_block) < 5: 
-        #print(f'length: {length}')
-        boundaries = [0] + sorted(random.sample(range(length-1), n_set-1)) + [length-1]    
-        n_frames_per_block = [boundaries[i] - boundaries[i-1] for i in range(1, len(boundaries))]
+    if not boundaries:
+        while min(n_frames_per_block) < 2: 
+            #print(f'length: {length}')
+            boundaries = [0] + sorted(random.sample(range(length-1), n_set-1)) + [length-1] 
+            n_frames_per_block = [boundaries[i] - boundaries[i-1] for i in range(1, len(boundaries))]
+
+
         
     runs = math.ceil((length/batch_size))
     outputs = []
@@ -456,12 +479,14 @@ def compute_features_2(transform, image_model, flow_model, videofile, n_set=5, b
     segments = [vidout[boundaries[i-1]:boundaries[i]-1] for i in range(1,len(boundaries))]
     #print(f'len(segments): {len(segments)}')
     
+    
     ### We average the features of the frames belonging to each segment to compute the features for the segment
     set_vectors =[x.mean(axis=0) for x in segments]
         
     #This is the random order in which we shuffle the "blocks" of the video
     #So we need to figure out the inverse permutation function that is going to serve as the correct order
-    random_order = random.sample(range(n_set), n_set)
+    if random_order is None:
+        random_order = random.sample(range(n_set), n_set)
     y = np.zeros(n_set, dtype=int)
     #print(random_order, len(set_vectors))
     for k, v in enumerate(random_order):
@@ -469,16 +494,24 @@ def compute_features_2(transform, image_model, flow_model, videofile, n_set=5, b
     # we reorder the feature representation of the blocks now that we have computed the the correct order from the 
     #shuffled one
     set_vectors = [set_vectors[x] for x in random_order]
-    X = np.stack(set_vectors, axis=0)
+    X = np.stack(set_vectors, axis=0) #shape = (n_set, n_features)
         
-    return X, y, boundaries
+    return X, y, boundaries, random_order
 
 def compute_features_main(transform, model, videofile, n_set=5, batch_size=64, flow_model=None):
     if flow_model:
-        return compute_features_2(transform, model, flow_model, videofile, n_set=n_set, batch_size=batch_size)
+        X, y, b, random_order =  compute_features_2(transform, model, flow_model, videofile, n_set=n_set, batch_size=batch_size)
+        if X is None:
+            return None, None, None
+        X2, y2, b2, random_order2 = compute_features(transform, model, videofile, n_set=n_set, batch_size=batch_size, boundaries=b,
+                                                    random_order=random_order)
+        if X2 is None:
+            return None, None, None
+        X_tot = np.concatenate([X, X2], axis=-1)
+        return X_tot, y, b
     else:
-        return compute_features(transform, model, videofile, n_set=n_set, batch_size=batch_size)
-    
+        X, y, b, random_order =  compute_features(transform, model, videofile, n_set=n_set, batch_size=batch_size)
+        return X, y, b
     
 if __name__ == '__main__':
     main()

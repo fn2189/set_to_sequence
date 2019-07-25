@@ -4,7 +4,9 @@ RUN EXAMPLE:
 
 - Words: python scripts/digits_reordering.py --pickle-file pickles/words_reordering_10000_2000_5_2019-06-18_12:32:55.406161.pkl  --hidden-dims 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader words --input-dim 26
 
-- Videos: python scripts/digits_reordering.py --pickle-file pickles/video_reordering_18374_3937_5_2019-06-18_11:45:26.327081.pkl  --hidden-dims 512 512 --lstm-steps 10 --lr 1 --batch-size 128 --epochs 100 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader videos --input-dim 1280
+- Videos: python scripts/digits_reordering.py --pickle-file ../s3-drive/set_to_sequence/video_reordering_18374_3937_5_2019-06-18_11:45:26.327081.pkl  --hidden-dims 256 --lstm-steps 10 --lr 1e-4 --batch-size 128 --epochs 100 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader videos --input-dim 1280 --dropout .2 --weight-decay 1e-4
+
+- Videos (mnv2 + optical flow): python scripts/digits_reordering.py --pickle-file pickles/video_reordering_18374_3937_5_2019-07-17_00:27:53.238932.pkl  --hidden-dim 256 --lstm-steps 10 --lr 1e-4 --batch-size 128 --epochs 200 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 25 --reader videos --input-dim 2560 --dropout .2 --weight-decay 1e-4
 """
 
 # Usual imports
@@ -290,5 +292,7 @@ if __name__ == '__main__':
                         help='what reader and dataset class ')
     parser.add_argument('--input-dim', default=1, type=int, 
                         help='dimension of the input ex: 1 for digits, 26 for words create from western alphabet')
+    parser.add_argument('--dropout', default=0.1, type=float, 
+                        help='dropout rate')
     args = parser.parse_args()
     main()
