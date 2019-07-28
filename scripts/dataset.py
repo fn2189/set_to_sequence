@@ -67,7 +67,8 @@ class VideosDataset(torch.utils.data.Dataset):
         return len(self.data)
     
     def __getitem__(self, idx):
-        X = torch.from_numpy(self.data[idx][0].astype(np.float64)).permute(1,0)  # shape (1280, n_set) 
+        X = torch.from_numpy(self.data[idx][0].astype(np.float64)).permute(1,0)  # shape (n_features, n_set) 
+        #print(f'X shape: {X.size()}')
         Y = torch.from_numpy(self.data[idx][1]) # shape (batch, n_set)
         filename = self.data[idx][2] 
         blocks_boundaries = self.data[idx][3] 

@@ -36,6 +36,7 @@ class ReadLinear(nn.Module):
         x is a batch of sets of shape (batch size, input_dim, set_length) to fit the expected shape of conv1d
         We loop over the number of layer of the MLP and for each laer we compute the output of the layer with the corresponding W and b
         """
+        #print(f'X shape: {x.shape}')
         x = x.permute(0,2,1).unsqueeze(-1) #shape (batch size, set_length, input_dim, 1)
         for i in range(len(self.dims)-1):
             

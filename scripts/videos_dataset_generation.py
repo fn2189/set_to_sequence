@@ -342,7 +342,7 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64, bounda
         #try:
         if getattr(model, 'features'): #resnet arch has a features methods so no need to remove last layer
             #print('Returning features')
-            output = model.features(input_imgs_var)
+            output = model.linear_features(input_imgs_var)
         else: #mnv2 does not
             output = model(input_imgs_var)
         #except:

@@ -1,12 +1,14 @@
 """
 RUN EXAMPLE: 
-- Digits: python scripts/digits_reordering.py --pickle-file pickles/digits_reordering_10000_2000_5_2019-06-18_13:15:34.234123.pkl  --hidden-dims 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100
+- Digits: python scripts/digits_reordering.py --pickle-file pickles/digits_reordering_10000_2000_5_2019-07-27_14:05:17.582365.pkl  --hidden-dims 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints/digits --tensorboard-saveprefix tensorboard/digits --print-offset 100
 
-- Words: python scripts/digits_reordering.py --pickle-file pickles/words_reordering_10000_2000_5_2019-06-18_12:32:55.406161.pkl  --hidden-dims 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader words --input-dim 26
+- Words: python scripts/digits_reordering.py --pickle-file ../s3-drive/set_to_sequence/words_reordering_1.pkl  --hidden-dims 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints/words --tensorboard-saveprefix tensorboard/words --print-offset 100 --reader words --input-dim 26
 
-- Videos: python scripts/digits_reordering.py --pickle-file ../s3-drive/set_to_sequence/video_reordering_18374_3937_5_2019-06-18_11:45:26.327081.pkl  --hidden-dims 256 --lstm-steps 10 --lr 1e-4 --batch-size 128 --epochs 100 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader videos --input-dim 1280 --dropout .2 --weight-decay 1e-4
+- Videos: python scripts/digits_reordering.py --pickle-file ../s3-drive/set_to_sequence/resnet50_moments_in_time.pkl  --hidden-dims 256 --lstm-steps 10 --lr 1e-4 --batch-size 128 --epochs 100 --saveprefix checkpoints/videos --tensorboard-saveprefix tensorboard/videos --print-offset 100 --reader videos --input-dim 2048 --dropout .2 --weight-decay 1e-4
 
-- Videos (mnv2 + optical flow): python scripts/digits_reordering.py --pickle-file pickles/video_reordering_18374_3937_5_2019-07-17_00:27:53.238932.pkl  --hidden-dim 256 --lstm-steps 10 --lr 1e-4 --batch-size 128 --epochs 200 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 25 --reader videos --input-dim 2560 --dropout .2 --weight-decay 1e-4
+- python scripts/digits_reordering.py --pickle-file ../s3-drive/set_to_sequence/video_reordering_18374_3937_5_2019-06-18_11:45:26.327081.pkl  --hidden-dims 256 --lstm-steps 10 --lr 1e-4 --batch-size 128 --epochs 100 --saveprefix checkpoints/videos --tensorboard-saveprefix tensorboard/videos --print-offset 100 --reader videos --input-dim 1280 --dropout .2 --weight-decay 1e-4
+
+- Videos (mnv2 + optical flow): python scripts/digits_reordering.py --pickle-file pickles/video_reordering_18374_3937_5_2019-07-17_00:27:53.238932.pkl  --hidden-dim 256 --lstm-steps 10 --lr 1e-4 --batch-size 128 --epochs 200 --saveprefix checkpoints/videos --tensorboard-saveprefix tensorboard/videos --print-offset 25 --reader videos --input-dim 2560 --dropout .2 --weight-decay 1e-4
 """
 
 # Usual imports

@@ -1,10 +1,10 @@
 """
 RUN EXAMPLE: 
-- digits: python scripts/digits_reordering_test.py --pickle-file pickles/digits_reordering_10000_2000_5_2019-06-18_13:15:34.234123.pkl --resume checkpoints/5/ep_10_map_inf_latest.pth.tar --hidden-dims 32 --lstm-steps 10
+- digits: python scripts/digits_reordering_test.py --pickle-file pickles/digits_reordering_10000_2000_5_2019-07-27_14:05:17.582365.pkl --resume checkpoints/digits/1/ep_10_map_inf_latest.pth.tar --hidden-dims 32 --lstm-steps 10
 
-- words: python scripts/digits_reordering_test.py --pickle-file pickles/words_reordering_english_2.pkl --resume checkpoints/6/ep_100_map_inf_latest.pth.tar --hidden-dim 32 --lstm-steps 10 --reader words --input-dim 26
+- words: python scripts/digits_reordering_test.py --pickle-file ../s3-drive/set_to_sequence/words_reordering_1.pkl --resume checkpoints/3/ep_100_map_inf_latest.pth.tar --hidden-dims 32 --lstm-steps 10 --reader words --input-dim 26
 
-Videos: python scripts/digits_reordering_test.py --pickle-file pickles/video_reordering_18374_3937_5_2019-06-18_11:45:26.327081.pkl  --resume checkpoints/15/ep_100_map_inf_latest.pth.tar --hidden-dim 512 --lstm-steps 10  --reader videos --input-dim 1280 
+Videos: python scripts/digits_reordering_test.py --pickle-file pickles/video_reordering_18374_3937_5_2019-06-18_11:45:26.327081.pkl  --resume checkpoints/15/ep_100_map_inf_latest.pth.tar --hidden-dims 512 --lstm-steps 10  --reader videos --input-dim 1280 
 """
 
 # Usual imports
@@ -31,8 +31,10 @@ from tensorboardX import SummaryWriter
 
 #my modules
 from dataset import DigitsDataset, WordsDataset, VideosDataset
-from order_matters_that_worked import ReadProcessWrite
-from digits_reordering_that_worked import create_model
+#from order_matters_that_worked import ReadProcessWrite
+from order_matters import ReadProcessWrite
+#from digits_reordering_that_worked import create_model
+from digits_reordering import create_model
 
 DATASET_CLASSES = {'linear': DigitsDataset, 'words': WordsDataset, 'videos': VideosDataset}
 LETTERS = 'abcdefghijklmnopqrstuvwxyz'
@@ -155,7 +157,7 @@ if __name__ == '__main__':
                         help='the batch size to use for training')
     parser.add_argument('-j', '--workers', default=4, type=int, metavar='N',
                         help='number of data loading workers (default: 4)')
-    parser.add_argument('--hidden-dim', type=int, default=256, 
+    parser.add_argument('--hidden-dims', type=int, default=[256], nargs='+', 
                         help='number of hidden dimension for the for each layer of the read block. ')
     parser.add_argument('--lstm-steps', type=int, default=5,
                         help='number of steps for the self attention process block')
