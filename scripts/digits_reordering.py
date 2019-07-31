@@ -6,7 +6,7 @@ RUN EXAMPLE:
 
 - Videos: python scripts/digits_reordering.py --pickle-file ../s3-drive/set_to_sequence/resnet50_moments_in_time.pkl  --hidden-dims 256 --lstm-steps 10 --lr 1e-4 --batch-size 128 --epochs 100 --saveprefix checkpoints/videos --tensorboard-saveprefix tensorboard/videos --print-offset 100 --reader videos --input-dim 2048 --dropout .2 --weight-decay 1e-4
 
-- python scripts/digits_reordering.py --pickle-file ../s3-drive/set_to_sequence/video_reordering_18374_3937_5_2019-06-18_11:45:26.327081.pkl  --hidden-dims 256 --lstm-steps 10 --lr 1e-4 --batch-size 128 --epochs 100 --saveprefix checkpoints/videos --tensorboard-saveprefix tensorboard/videos --print-offset 100 --reader videos --input-dim 1280 --dropout .2 --weight-decay 1e-4
+- python scripts/digits_reordering.py --pickle-file ../s3-drive/set_to_sequence/video_reordering_resnet50.pkl  --hidden-dims 256 --lstm-steps 10 --lr 1e-4 --batch-size 128 --epochs 100 --saveprefix checkpoints/videos --tensorboard-saveprefix tensorboard/videos --print-offset 100 --reader videos --input-dim 2048 --dropout .2 --weight-decay 1e-4
 
 - Videos (mnv2 + optical flow): python scripts/digits_reordering.py --pickle-file pickles/video_reordering_18374_3937_5_2019-07-17_00:27:53.238932.pkl  --hidden-dim 256 --lstm-steps 10 --lr 1e-4 --batch-size 128 --epochs 200 --saveprefix checkpoints/videos --tensorboard-saveprefix tensorboard/videos --print-offset 25 --reader videos --input-dim 2560 --dropout .2 --weight-decay 1e-4
 """
@@ -128,6 +128,7 @@ def train(train_loader, val_loader, model, criterion, optimizer, epoch, writer):
         # Transfer to GPU
         device = f'cuda:{torch.cuda.current_device()}' if torch.cuda.is_available() else 'cpu'
         X, Y = X.to(device).float(), Y.to(device)
+        #print(f'X shape: {X.size()}, Y shape: {Y.size()}')
         #X, Y = X.cuda().float(), Y.cuda()
 
         # Model computations

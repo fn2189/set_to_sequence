@@ -4,7 +4,7 @@ RUN EXAMPLE:
 
 - Words: python scripts/digits_reordering_that_worked.py --pickle-file pickles/words_reordering_1.pkl  --hidden-dim 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 100 --reader words --input-dim 26 --dropout 0
 
-- Videos: python scripts/digits_reordering_that_worked.py --pickle-file pickles/video_reordering_18374_3937_5_2019-06-18_11:45:26.327081.pkl  --hidden-dim 256 --lstm-steps 10 --lr 1e-4 --batch-size 128 --epochs 200 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 25 --reader videos --input-dim 1280 --dropout .2 --weight-decay 1e-4
+- Videos: python scripts/digits_reordering_that_worked.py --pickle-file ../s3-drive/set_to_sequence/video_reordering_resnet50.pkl  --hidden-dim 256 --lstm-steps 10 --lr 1e-4 --batch-size 128 --epochs 200 --saveprefix checkpoints --tensorboard-saveprefix tensorboard/ --print-offset 25 --reader videos --input-dim 2048 --dropout .2 --weight-decay 1e-4
 """
 
 # Usual imports

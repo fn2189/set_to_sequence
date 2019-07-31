@@ -368,10 +368,14 @@ def compute_features(transform, model, videofile, n_set=5, batch_size=64, bounda
     #So we need to figure out the inverse permutation function that is going to serve as the correct order
     if random_order is None:
         random_order = random.sample(range(n_set), n_set)
-    y = np.zeros(n_set, dtype=int)
-    #print(random_order, len(set_vectors))
-    for k, v in enumerate(random_order):
-        y[v] = k
+        
+    random_order_matrix = np.zeros((n_set, n_set), dtype=int)
+    for i in range(n_set):
+        random_order_matrix[i, random_order[i]] = 1
+        
+    inverse_random_order_matrix = random_order_matrix.T #property of permutation matrix that are orthogonal
+    y = np.matmul(inverse_random_order_matrix, np.array(range(n_set)))
+
     # we reorder the feature representation of the blocks now that we have computed the the correct order from the 
     #shuffled one
     set_vectors = [set_vectors[x] for x in random_order]
@@ -461,7 +465,12 @@ def compute_features_2(transform, image_model, flow_model, videofile, n_set=5, b
             input_imgs_var = input_imgs_var.cuda()
         # compute output
         #try:
-        output = image_model(input_imgs_var)
+        #output = image_model(input_imgs_var)
+        if getattr(image_model, 'features'): #resnet arch has a features methods so no need to remove last layer
+            #print('Returning features')
+            output = image_model.linear_features(input_imgs_var)
+        else: #mnv2 does not
+            output = image_model(input_imgs_var)
         #except:
         #    print(f'input_imgs_var size: {input_imgs_var.size()}')
         #    raise ValueError('RuntimeError: CUDA error: out of memory')
