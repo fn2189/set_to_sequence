@@ -1,6 +1,7 @@
 import os
 import torch
 import torch.utils.data
+from torch.nn.utils.rnn import pad_sequence
 from PIL import Image
 import torchvision
 
@@ -67,8 +68,25 @@ class VideosDataset(torch.utils.data.Dataset):
         return len(self.data)
     
     def __getitem__(self, idx):
-        X = torch.from_numpy(self.data[idx][0].astype(np.float64)).permute(1,0)  # shape (n_features, n_set) 
+        #X = torch.from_numpy(self.data[idx][0].astype(np.float64)).permute(1,0)  # shape (n_features, n_set) 
+        
+        #X = {} #need to make X a dict instead of a list because the dataloader would not know how to handle a list
+        #for _ in range(len(self.data[idx][0])):
+        #    X[_] = torch.from_numpy(self.data[idx][0][_].astype(np.float64))
+        
+        
+        
+        sequences = [torch.from_numpy(x) for x in self.data[idx][0]]
+        
+        #print([x.size(0) for x in sequences])
+        
+        if max([x.size(0) for x in sequences]) > 1000:
+            return None
+        
+        #print(f'sequences[0] size : {sequences[0].size()}')
+        X = pad_sequence(sequences)
         #print(f'X shape: {X.size()}')
+        
         Y = torch.from_numpy(self.data[idx][1]) # shape (batch, n_set)
         filename = self.data[idx][2] 
         blocks_boundaries = self.data[idx][3] 
