@@ -1,8 +1,8 @@
 """
 RUN EXAMPLE: 
-- Digits: python scripts/digits_reordering.py --pickle-file pickles/digits_reordering_10000_2000_5_2019-07-27_14:05:17.582365.pkl  --hidden-dims 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints/digits --tensorboard-saveprefix tensorboard/digits --print-offset 100
+- Digits: python scripts/digits_reordering.py --pickle-file pickles/digits_reordering_10000_2000_10_2019-08-07_12:00:48.139281.pkl  --hidden-dims 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints/digits --tensorboard-saveprefix tensorboard/digits --print-offset 100
 
-- Words: python scripts/digits_reordering.py --pickle-file ../s3-drive/set_to_sequence/words_reordering_1.pkl  --hidden-dims 32 --lstm-steps 10 --lr 1e-4 --batch-size 32 --epochs 10 --saveprefix checkpoints/words --tensorboard-saveprefix tensorboard/words --print-offset 100 --reader words --input-dim 26
+- Words: python scripts/digits_reordering.py --pickle-file pickles/words_reordering_10000_2000_10_2019-08-07_15:04:50.672650.pkl  --hidden-dims 32 --lstm-steps 10 --lr 1e-4 --batch-size 256 --epochs 10 --saveprefix checkpoints/words/n_10 --tensorboard-saveprefix tensorboard/words/n_10 --print-offset 100 --reader words --input-dim 26
 
 - Videos: python scripts/digits_reordering.py --pickle-file ../s3-drive/set_to_sequence/resnet50_moments_in_time.pkl  --hidden-dims 256 --lstm-steps 10 --lr 1e-4 --batch-size 128 --epochs 100 --saveprefix checkpoints/videos --tensorboard-saveprefix tensorboard/videos --print-offset 100 --reader videos --input-dim 2048 --dropout .2 --weight-decay 1e-4
 

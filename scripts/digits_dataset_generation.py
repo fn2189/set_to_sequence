@@ -1,5 +1,5 @@
 """
-example run: python scripts/digits_dataset_generation.py --n-train 10000 --n-val 2000 --n-test 200 --n-set 5
+example run: python scripts/digits_dataset_generation.py --n-train 10000 --n-val 2000 --n-test 200 --n-set 10
 """
 import numpy as np
 import pickle 

@@ -2,7 +2,7 @@
 RUN EXAMPLE: 
 - digits: python scripts/digits_reordering_test.py --pickle-file pickles/digits_reordering_10000_2000_5_2019-07-27_14:05:17.582365.pkl --resume checkpoints/digits/1/ep_10_map_inf_latest.pth.tar --hidden-dims 32 --lstm-steps 10
 
-- words: python scripts/digits_reordering_test.py --pickle-file ../s3-drive/set_to_sequence/words_reordering_1.pkl --resume checkpoints/3/ep_100_map_inf_latest.pth.tar --hidden-dims 32 --lstm-steps 10 --reader words --input-dim 26
+- words: python scripts/digits_reordering_test.py --pickle-file pickles/words_reordering_10000_2000_10_2019-08-07_15:04:50.672650.pkl --resume checkpoints/3/ep_100_map_inf_latest.pth.tar --hidden-dims 256 --lstm-steps 10 --reader words --input-dim 26
 
 Videos: python scripts/digits_reordering_test.py --pickle-file pickles/video_reordering_18374_3937_5_2019-06-18_11:45:26.327081.pkl  --resume checkpoints/15/ep_100_map_inf_latest.pth.tar --hidden-dims 512 --lstm-steps 10  --reader videos --input-dim 1280 
 """
