@@ -1,0 +1,1202 @@
+Accuracy for epoch: 20
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+ Predicted Words order: ['tofu' 'sigillography' 'undramatizable' 'quintus' 'disfashion'
+ 'grandezza' 'examining' 'phalange' 'geshurites' 'prereformatory'
+ 'cleavelandite' 'ponies' 'presently' 'perispondylic' 'specificized']
+ Real Words order: ['cleavelandite' 'disfashion' 'examining' 'geshurites' 'grandezza'
+ 'perispondylic' 'phalange' 'ponies' 'prereformatory' 'presently'
+ 'quintus' 'sigillography' 'specificized' 'tofu' 'undramatizable']
+Fraction of perfectly sorted sets: 0.0

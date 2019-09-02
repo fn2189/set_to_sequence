@@ -1,0 +1,802 @@
+Accuracy for epoch: 50
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+ Predicted Words order: ['delayer' 'downcoming' 'flasket' 'opponents' 'rikshaws' 'supersedeas'
+ 'stink' 'abhominable' 'unblemishedness' 'antibacterial']
+ Real Words order: ['abhominable' 'antibacterial' 'delayer' 'downcoming' 'flasket'
+ 'opponents' 'rikshaws' 'stink' 'supersedeas' 'unblemishedness']
+Fraction of perfectly sorted sets: 0.0
