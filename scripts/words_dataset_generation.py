@@ -1,5 +1,5 @@
 """
-example run: python scripts/words_dataset_generation.py --n-train 10000 --n-val 2000 --n-test 200 --n-set 10 --max-length 25 --min-length 5 --from-list True
+example run: python scripts/words_dataset_generation.py --n-train 10000 --n-val 2000 --n-test 200 --n-set 10 --max-length 30 --min-length 5 --from-list True
 """
 import numpy as np
 import pickle 
@@ -37,6 +37,7 @@ def main():
     
     words_list = load_words()
     
+    
     if args.from_list:
         """
         n_words = len(words_list)
@@ -52,12 +53,13 @@ def main():
         n_train = args.n_train
         n_val = args.n_val
         n_test = args.n_test
+        n_set = args.n_set
         
-        words = random.sample(words_list, n_train+ n_val+ n_test)
+        words = random.sample(words_list, n_set*(n_train+ n_val+ n_test)) ##N_samples*n_set
         
-        train_list = words[:n_train]
-        val_list = words[n_train:n_train+n_val]
-        test_list = words[n_train+n_val:]
+        train_list = words[:n_set*n_train]
+        val_list = words[n_set*n_train:n_set*(n_train+n_val)]
+        test_list = words[n_set*(n_train+n_val):]
         
 
         
@@ -97,7 +99,6 @@ def load_words():
     with open('../english-words/words_alpha.txt') as word_file:
         valid_words = set(word_file.read().split())
         
-
     return valid_words
 
 
@@ -121,14 +122,15 @@ def generate_word(max_length, min_length):
 def generate_set(N, n_set, max_length, min_length, w_list=None):
     l_word = []
     l_enc = []
-    if w_list:
-        N = len(w_list)
+    #if w_list:
+    #    N = len(w_list)
+    print('train set length: ', N)
     for i in range(N):
         l_sub_word = []
         l_sub_enc = []
         for j in range(n_set):
             if w_list:
-                encoding, word = generate_word_from_list(j, w_list, max_length)
+                encoding, word = generate_word_from_list(i*n_set+j, w_list, max_length)
             else:
                 encoding, word = generate_word(max_length, min_length)
             l_sub_word.append(word)
@@ -150,7 +152,10 @@ def generate_word_from_list(i, w_list, max_length):
     for _, letter in enumerate(LETTERS):
         LETTERS_DICT[letter] = _
     
-    word = w_list[i]
+    try:
+        word = w_list[i]
+    except:
+        raise ValueError(f'{i} out of index for w_list')
     encoding = np.zeros((max_length, len(LETTERS)))
     for _ in range(len(word)):
         letter = word[_]
